@@ -80,7 +80,7 @@ export default function AboutPage() {
                 Our Journey
               </h2>
               <p className="font-paragraph text-lg text-gray-600 leading-relaxed mb-6">
-                Air Charter Service has grown from humble beginnings to become one of the world&apos;s leading aircraft charter companies. With over 35,000 flights per year, we have established ourselves as the largest private charter brokerage globally.
+                RV Global Aviation has grown from humble beginnings to become one of the world&apos;s leading aircraft charter companies. With over 35,000 flights per year, we have established ourselves as the largest private charter brokerage globally.
               </p>
               <p className="font-paragraph text-lg text-gray-600 leading-relaxed mb-6">
                 Our commitment to excellence, personalized service, and global reach has made us the preferred choice for discerning travelers and businesses worldwide. We take pride in our ability to provide tailored solutions for every charter need, from private jets to cargo aircraft.

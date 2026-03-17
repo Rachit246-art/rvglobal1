@@ -189,8 +189,8 @@ export default function HomePage() {
             ) : (
               // Fallback static content if DB is empty
               [
-                { title: 'PRIVATE JET CHARTER', img: 'https://images.aircharterservice.com/global/spotlight/private-charter.jpg', desc: 'Air Charter Service can offer helicopters, private jets and executive airliner charters, as well as a huge range of small specialist aircraft for all business and leisure purposes.' },
-                { title: 'GROUP AIRCRAFT CHARTER', img: 'https://images.aircharterservice.com/global/spotlight/group-charter.jpg', desc: 'Air Charter Service can arrange charters for larger groups of passengers on aircraft including regional jet airliners and turboprops, VIP & executive airliners, as well as narrow and wide-body airliners.' },
+                { title: 'PRIVATE JET CHARTER', img: 'https://images.aircharterservice.com/global/spotlight/private-charter.jpg', desc: 'RV Global Aviation can offer helicopters, private jets and executive airliner charters, as well as a huge range of small specialist aircraft for all business and leisure purposes.' },
+                { title: 'GROUP AIRCRAFT CHARTER', img: 'https://images.aircharterservice.com/global/spotlight/group-charter.jpg', desc: 'RV Global Aviation can arrange charters for larger groups of passengers on aircraft including regional jet airliners and turboprops, VIP & executive airliners, as well as narrow and wide-body airliners.' },
                 { title: 'CARGO AIRCRAFT CHARTER', img: 'https://images.aircharterservice.com/global/spotlight/cargo-charter.jpg', desc: 'Our award winning cargo department offers a full range of cargo aircraft and helicopters, from shipment of small urgent packages to large, heavy outsize consignments.' }
               ].map((item, index) => (
                 <AnimatedElement key={index} delay={index * 150} className="flex flex-col items-center text-center group">
@@ -216,7 +216,7 @@ export default function HomePage() {
         <div className="container mx-auto px-4">
           <AnimatedElement>
             <h2 className="text-xl md:text-2xl font-heading font-bold text-primary text-center mb-12 uppercase tracking-wide">
-              WHY CHOOSE AIR CHARTER SERVICE
+              WHY CHOOSE RV GLOBAL AVIATION
             </h2>
           </AnimatedElement>
 
@@ -283,7 +283,7 @@ export default function HomePage() {
               <div className="w-full md:w-1/2 bg-primary text-white p-12 flex flex-col justify-center items-center text-center">
                 <h3 className="text-2xl font-heading font-bold mb-6 uppercase tracking-wide">OUR JOURNEY</h3>
                 <p className="text-sm text-white/80 mb-8 leading-relaxed max-w-md">
-                  Watch our video to see the rise of Air Charter Service from one man in the basement of his house to one of the largest aircraft charter companies in the world.
+                  Watch our video to see the rise of RV Global Aviation from one man in the basement of his house to one of the largest aircraft charter companies in the world.
                 </p>
                 <Button className="bg-accent hover:bg-accent/90 text-white rounded-full px-8 py-2 text-xs font-bold tracking-wider uppercase transition-all hover:shadow-lg hover:-translate-y-1">
                   Our History

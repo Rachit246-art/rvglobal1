@@ -112,8 +112,8 @@ export default function ContactPage() {
               {
                 icon: Mail,
                 title: 'Email Us',
-                content: 'info@aircharterserviceusa.com',
-                link: 'mailto:info@aircharterserviceusa.com',
+                content: 'info@rvglobalaviation.com',
+                link: 'mailto:info@rvglobalaviation.com',
               },
               {
                 icon: MapPin,

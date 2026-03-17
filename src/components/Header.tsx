@@ -25,7 +25,7 @@ export default function Header() {
           {/* Logo */}
           <Link to="/" className="flex items-center">
             <span className="text-2xl font-heading font-bold text-primary">
-              aircharterserviceusa.com
+              RV Global Aviation
             </span>
           </Link>
 

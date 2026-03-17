@@ -8,7 +8,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div>
-            <h3 className="text-xl font-heading font-bold mb-4">aircharterserviceusa.com</h3>
+            <h3 className="text-xl font-heading font-bold mb-4">RV Global Aviation</h3>
             <p className="font-paragraph text-sm text-white/80 mb-4">
               Leading the way in private aircraft charter with over 35,000 flights per year and global coverage across 40+ offices.
             </p>
@@ -112,7 +112,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="border-t border-white/20 mt-8 pt-8 text-center">
           <p className="font-paragraph text-sm text-white/80">
-            © 2026 aircharterserviceusa.com. All rights reserved.
+            © 2026 RV Global Aviation. All rights reserved.
           </p>
         </div>
       </div>
