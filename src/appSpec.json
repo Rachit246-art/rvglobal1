@@ -1,0 +1,213 @@
+{
+  "id": "640d7ac8-b658-44c7-b06c-94e455c27a92",
+  "initialPrompt": "Create a website inspired by https://www.aircharterserviceusa.com/",
+  "siteName": "aircharterserviceusa.com",
+  "brandBook": {
+    "tones": [
+      "professional",
+      "luxurious",
+      "reliable",
+      "exclusive",
+      "service-oriented"
+    ],
+    "designStyle": {
+      "primaryStyle": [
+        "Elegant"
+      ],
+      "supportingStyles": [
+        "Minimalist",
+        "Sophisticated",
+        "Professional"
+      ]
+    },
+    "toneOfVoice": "Professional, sophisticated, trustworthy, exclusive, and service-oriented.",
+    "graphicElements": {
+      "icons": "Clean, minimalist line icons that match the primary and secondary color palette. Used sparingly for navigation and feature highlights.",
+      "stickers": "Not applicable for this brand.",
+      "illustrations": "Not applicable for this brand; focus on photography."
+    },
+    "designSummary": "**The Sophisticated Navigator: A Blend of Elegance and Precision**\n\nThe vision for RV Global Aviation is to embody the pinnacle of luxury air travel, mirroring the refined aesthetic of Air Charter Service. We will achieve this by creating a digital experience that is both supremely elegant and effortlessly functional. The design will leverage generous whitespace, classic typography, and a muted, sophisticated color palette to convey trust, exclusivity, and unparalleled service. Every element, from the navigation to the content presentation, will be meticulously crafted to reflect the premium nature of private aviation.\n\n**Execution Blueprint:**\n1. **Layout Philosophy:** A clean, symmetrical, and spacious layout will be the foundation, ensuring clarity and a sense of calm. Generous negative space will be used to highlight key information and create a luxurious feel.\n2. **Typographic Hierarchy:** A classic serif font will define headlines, exuding sophistication, while a clean sans-serif will ensure readability for body content. The typographic scale will be carefully managed to maintain a clear hierarchy.\n3. **Color Harmony:** A desaturated, monochromatic palette with a single, subtle metallic accent will be employed. This will create a serene and premium atmosphere, avoiding any visual clutter.\n4. **Component Refinement:** Buttons and form elements will be minimalist, defined by subtle borders or ghost styles, reinforcing the elegant, uncluttered aesthetic. Animations will be slow and subtle, enhancing the user experience without distraction.",
+    "layout": {
+      "grid": {
+        "margins": "Generous, creating breathing room around sections.",
+        "padding": "Consistent, applied within containers to frame content.",
+        "compositionApproach": "Strict 12-column grid with symmetrical alignment and generous gutters.",
+        "spacing": {
+          "gaps": "Base unit: 8px. Grid gaps are 24px (3x base unit).",
+          "rows": "Flexible, based on content",
+          "columns": "12 columns",
+          "compositionApproach": "Not specified"
+        }
+      },
+      "layoutDna": {
+        "contrastSpectrum": "Moderate, relying on color and typography rather than harsh contrasts.",
+        "densitySpectrum": "Spacious, with significant negative space.",
+        "textVsImageEmphasis": "Balanced, with high-quality imagery supporting and complementing the text.",
+        "complexitySpectrum": "Low, focusing on clarity and ease of navigation.",
+        "gridAlignmentSpectrum": "Symmetrical and balanced, with elements aligned to a strict grid.",
+        "negativeSpaceUsage": "Generous, used to create a sense of luxury and focus."
+      },
+      "heroSectionLayout": "**The Grand Entrance: Elevated Charter Inquiry**\nComposition (Tailwind Spec): Main container (h-screen grid place-items-center p-8). A full-width, high-resolution background image of a private jet interior or exterior. Overlayed text block (relative w-full max-w-3xl mx-auto text-center).\nSignature Hook (Framer Motion Spec): Headline 'RV Global Aviation: Your Premier Charter Partner' using 'fraunces' (text-7xl font-bold leading-tight). Subtitle 'Experience Unrivaled Luxury and Seamless Travel' using 'montserrat' (text-xl font-light leading-relaxed). A primary 'Inquire Now' button (mt-8 px-12 py-4 rounded-none bg-secondary text-white font-bold uppercase tracking-wide) with a subtle hover effect (scale-105)."
+    },
+    "components": {
+      "images": "Layout Role: Integrated within the grid, often full-width or spanning multiple columns. | Gallery Type: Standard grid display for service offerings, full-bleed for hero backgrounds. Images are high-quality and aspirational.",
+      "buttons": "Primary: background-color: #1FB6EB, color: #FFFFFF, border-radius: 0px, padding: 12px 24px, font-weight: 700, text-transform: uppercase. Secondary: background-color: #53B4E6, color: #FFFFFF, border-radius: 0px, padding: 12px 24px, font-weight: 700, text-transform: uppercase. Both buttons have no shadow and a subtle hover effect.",
+      "containers": "Method: Whitespace, Style: 80px vertical margin between sections. Card-like containers use a subtle background color (#F5F6F7) with 0px border-radius and no shadow."
+    },
+    "palette": {
+      "colors": {
+        "customColors": [
+          {
+            "name": "destructive",
+            "value": "#E53935"
+          },
+          {
+            "name": "destructiveForeground",
+            "value": "#FFFFFF"
+          },
+          {
+            "name": "accent",
+            "value": "#53B4E6"
+          }
+        ],
+        "background": "#FFFFFF",
+        "secondary": "#53B4E6",
+        "foreground": "#586A79",
+        "secondaryForeground": "#FFFFFF",
+        "primaryForeground": "#FFFFFF",
+        "primary": "#586A79"
+      },
+      "paletteUsageGuide": "The primary color (#586A79) should be used for main navigation elements, key text, and structural components. The secondary color (#53B4E6) serves as an accent for CTAs, links, and secondary navigation. The background is white (#FFFFFF) for maximum readability and a clean feel. Foreground text (#586A79) is used for body copy. Custom colors should be used sparingly: 'accent' for specific highlights, and 'destructive' for error states.",
+      "paletteAccessibilityNotes": "Ensure sufficient contrast between primary/secondary colors and their foregrounds. The primary color (#586A79) has good contrast against the white background. The secondary color (#53B4E6) also maintains good contrast. Text on primary and secondary should be legible. Destructive color has high contrast for error visibility."
+    },
+    "typography": {
+      "headings": {
+        "font": {
+          "fontFamily": "fraunces",
+          "role": "headings",
+          "fontJustification": ""
+        },
+        "headingsAccessibilityNotes": "Ensure headings are semantically correct and have sufficient size and weight for readability. Avoid overly decorative or thin weights for critical headings.",
+        "headingsSimilarFonts": [],
+        "headingsUsageGuide": "Use 'fraunces' for all major headings (H1, H2, H3) to convey a sense of classic elegance and authority. Ensure consistent sizing and weight for hierarchy."
+      },
+      "paragraphs": {
+        "font": {
+          "fontFamily": "montserrat",
+          "role": "paragraphs",
+          "fontJustification": ""
+        },
+        "paragraphsUsageGuide": "Use 'montserrat' for all body text, captions, and smaller informational elements. Its clean, modern aesthetic ensures readability and complements the serif headings.",
+        "paragraphsSimilarFonts": [],
+        "paragraphsAccessibilityNotes": "Maintain a minimum font size of 16px for body text and ensure adequate line height (1.5x font size) for comfortable reading. Letter spacing should be appropriate for legibility."
+      },
+      "customFontFamilies": {},
+      "fontSizes": [
+        {
+          "name": "xs",
+          "size": "0.75rem",
+          "lineHeight": "1.25",
+          "letterSpacing": "0.02em",
+          "fontWeight": "400"
+        },
+        {
+          "name": "sm",
+          "size": "0.875rem",
+          "lineHeight": "1.375",
+          "letterSpacing": "0.03em",
+          "fontWeight": "400"
+        },
+        {
+          "name": "base",
+          "size": "1rem",
+          "lineHeight": "1.5",
+          "letterSpacing": "0.04em",
+          "fontWeight": "400"
+        },
+        {
+          "name": "lg",
+          "size": "1.125rem",
+          "lineHeight": "1.625",
+          "letterSpacing": "0.04em",
+          "fontWeight": "400"
+        },
+        {
+          "name": "xl",
+          "size": "1.25rem",
+          "lineHeight": "1.75",
+          "letterSpacing": "0.05em",
+          "fontWeight": "500"
+        },
+        {
+          "name": "2xl",
+          "size": "1.5rem",
+          "lineHeight": "1.875",
+          "letterSpacing": "0.05em",
+          "fontWeight": "500"
+        },
+        {
+          "name": "3xl",
+          "size": "1.875rem",
+          "lineHeight": "2",
+          "letterSpacing": "0.06em",
+          "fontWeight": "600"
+        },
+        {
+          "name": "4xl",
+          "size": "2.25rem",
+          "lineHeight": "2.25",
+          "letterSpacing": "0.06em",
+          "fontWeight": "600"
+        },
+        {
+          "name": "5xl",
+          "size": "3rem",
+          "lineHeight": "1",
+          "letterSpacing": "0.07em",
+          "fontWeight": "700"
+        },
+        {
+          "name": "6xl",
+          "size": "3.75rem",
+          "lineHeight": "1",
+          "letterSpacing": "0.07em",
+          "fontWeight": "700"
+        },
+        {
+          "name": "7xl",
+          "size": "4.5rem",
+          "lineHeight": "1",
+          "letterSpacing": "0.08em",
+          "fontWeight": "700"
+        },
+        {
+          "name": "8xl",
+          "size": "6rem",
+          "lineHeight": "1",
+          "letterSpacing": "0.08em",
+          "fontWeight": "700"
+        },
+        {
+          "name": "9xl",
+          "size": "8rem",
+          "lineHeight": "1",
+          "letterSpacing": "0.09em",
+          "fontWeight": "700"
+        }
+      ],
+      "welcomeSectionTypography": {
+        "placement": "Centered, prominent display on the hero section.",
+        "implementation": "Large 'fraunces' font for the main headline, with a slightly smaller 'montserrat' subtitle. Ensure ample spacing around the text block."
+      }
+    },
+    "originImagesUrls": []
+  },
+  "attachments": {
+    "contentImagesUrls": [],
+    "inspirationImagesUrls": [
+      "https://wixmp-c562ea68f10846b458285ce5.wixmp.com/scraped-screenshots/screenshot-1773724968297.webp"
+    ]
+  },
+  "status": "READY",
+  "plan": "\n\n```json\n{\n  \"sections\": [\n    {\n      \"id\": \"overview\",\n      \"title\": \"## Overview\",\n      \"content\": \"This plan creates a professional aviation charter services website for RV Global Aviation, mirroring the structure and design of aircharterserviceusa.com with comprehensive service information, aircraft guides, and contact capabilities.\"\n    },\n    {\n      \"id\": \"key-features\",\n      \"title\": \"## Key features\",\n      \"content\": \"- **View Service Information**: Display detailed information about private jet charter, group charter, cargo charter, and helicopter services.\\n- **View Aircraft Guide**: Browse available aircraft types with specifications and details.\\n- **View Destination Guides**: Access information about charter destinations and routes.\\n- **View Blog Articles**: Read informative articles about aviation charter topics.\\n- **Submit Contact Form**: Send inquiries and charter requests through a contact form.\\n- **View Company Information**: Learn about RV Global Aviation's history, team, and global presence.\",\n      \"metadata\": [\n        { \"id\": \"view-service-information\", \"name\": \"View Service Information\" },\n        { \"id\": \"view-aircraft-guide\", \"name\": \"View Aircraft Guide\" },\n        { \"id\": \"view-destination-guides\", \"name\": \"View Destination Guides\" },\n        { \"id\": \"view-blog-articles\", \"name\": \"View Blog Articles\" },\n        { \"id\": \"submit-contact-form\", \"name\": \"Submit Contact Form\" },\n        { \"id\": \"view-company-information\", \"name\": \"View Company Information\" }\n      ]\n    },\n    {\n      \"id\": \"structure\",\n      \"title\": \"## Structure\",\n      \"content\": \"- **Header (Reusable)**: Contains RV Global Aviation logo, main navigation menu (Services, Aircraft, Destinations, About, Blog, Contact), and inquiry CTA button.\\n- **Home Page**: Hero section with charter inquiry form, service overview cards, featured aircraft showcase, and destination highlights.\\n- **Services Page**: Detailed sections for each charter service type (Private Jet, Group Charter, Cargo, Helicopter) with specifications and benefits.\\n- **Aircraft Guide Page**: Comprehensive listing of available aircraft with filtering by type, capacity, and range, plus detailed aircraft specifications.\\n- **About Page**: Company history, global office locations, team information, and industry credentials.\\n- **Blog Page**: Article listing with categories and search functionality, plus individual article detail views.\\n- **Contact Page**: Contact form, office locations map, phone numbers, and 24/7 availability information.\\n- **Footer (Reusable)**: Multi-column layout with quick links, service categories, contact information, and social media links.\"\n    }\n  ],\n  \"apps\": [\n    {\n      \"id\": \"wix-cms\",\n      \"keyFeatures\": [\n        { \"id\": \"view-service-information\", \"name\": \"View Service Information\" },\n        { \"id\": \"view-aircraft-guide\", \"name\": \"View Aircraft Guide\" },\n        { \"id\": \"view-destination-guides\", \"name\": \"View Destination Guides\" },\n        { \"id\": \"view-blog-articles\", \"name\": \"View Blog Articles\" },\n        { \"id\": \"submit-contact-form\", \"name\": \"Submit Contact Form\" },\n        { \"id\": \"view-company-information\", \"name\": \"View Company Information\" }\n      ]\n    }\n  ],\n  \"version\": \"4.0.1\"\n}\n```"
+}
