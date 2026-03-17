@@ -10,6 +10,7 @@ export default function Header() {
   const isActive = (path: string) => location.pathname === path;
 
   const navLinks = [
+    { path: '/', label: 'Home' },
     { path: '/services', label: 'Services' },
     { path: '/aircraft', label: 'Aircraft Guide' },
     { path: '/destinations', label: 'Destinations' },
