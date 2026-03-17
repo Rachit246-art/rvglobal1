@@ -97,9 +97,7 @@ export default function Footer() {
               </li>
               <li className="flex items-start">
                 <Mail className="w-5 h-5 mr-2 flex-shrink-0 text-accent" />
-                <a href="mailto:info@aircharterserviceusa.com" className="text-white/80 hover:text-accent transition-colors">
-                  info@aircharterserviceusa.com
-                </a>
+                <a href="mailto:info@aircharterserviceusa.com" className="text-white/80 hover:text-accent transition-colors">info@rvglobalaviation.com</a>
               </li>
               <li className="flex items-start">
                 <MapPin className="w-5 h-5 mr-2 flex-shrink-0 text-accent" />
