@@ -84,11 +84,17 @@ export default function HomePage() {
 
       {/* Hero Section */}
       <section className="relative min-h-[75vh] flex items-center overflow-hidden">
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat" 
-          style={{ backgroundImage: 'url(https://images.aircharterservice.com/sites/usa/air-charter-service-private-charter_tcm61-37104_tcm36-37104.jpg)' }} 
-        />
-        <div className="absolute inset-0 bg-black/20" /> {/* Subtle overlay for text readability */}
+        <video 
+          autoPlay 
+          muted 
+          loop 
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src="https://videos.pexels.com/video-files/3571937/3571937-sd_640_360_25fps.mp4" type="video/mp4" />
+          <source src="https://videos.pexels.com/video-files/3571937/3571937-sd_640_360_25fps.webm" type="video/webm" />
+        </video>
+        <div className="absolute inset-0 bg-black/30" /> {/* Overlay for text readability */}
         
         <div className="relative z-10 container mx-auto px-4 md:px-8 lg:px-12">
           <AnimatedElement className="max-w-[450px] bg-white shadow-2xl">
