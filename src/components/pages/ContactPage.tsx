@@ -106,8 +106,8 @@ export default function ContactPage() {
               {
                 icon: Phone,
                 title: '24/7 Phone Support',
-                content: '+1 (800) 000-0000',
-                link: 'tel:+1-800-000-0000',
+                content: '+91 8904886662',
+                link: 'tel:+91-8904886662',
               },
               {
                 icon: Mail,
