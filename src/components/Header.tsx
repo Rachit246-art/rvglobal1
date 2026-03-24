@@ -72,7 +72,7 @@ export default function Header() {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3">
             <Image 
-              src="https://static.wixstatic.com/media/41cdae_a3ed9227228b4ab8a018492a1947df4b~mv2.png"
+              src="https://static.wixstatic.com/media/41cdae_a8be753691854c67a2c4452b2dacbd32~mv2.jpeg"
               alt="RV Global Aviation Logo"
               width={200}
               height={60}
