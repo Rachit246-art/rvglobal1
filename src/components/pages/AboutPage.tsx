@@ -51,7 +51,6 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-
       {/* Hero Section */}
       <section className="relative min-h-[400px] flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary via-primary/90 to-accent/20">
         <div className="absolute inset-0 opacity-10">
@@ -70,7 +69,6 @@ export default function AboutPage() {
           </p>
         </div>
       </section>
-
       {/* Company Story */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
@@ -92,7 +90,6 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-
       {/* Stats Section */}
       <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-4">
@@ -114,7 +111,6 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-
       {/* Team Section */}
       {teamMembers.length > 0 && (
         <section className="py-20 bg-white">
@@ -133,18 +129,11 @@ export default function AboutPage() {
                       <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
                         {member.photo && (
                           <div className="relative h-64 overflow-hidden">
-                            <Image 
-                              src={member.photo} 
-                              alt={member.name || 'Team member'} 
-                              className="w-full h-full object-cover"
-                              width={400}
-                            />
+
                           </div>
                         )}
                         <div className="p-6">
-                          <h3 className="text-xl font-heading font-bold text-primary mb-1">
-                            {member.name}
-                          </h3>
+
                           <p className="text-accent font-paragraph font-medium mb-3">
                             {member.role}
                           </p>
@@ -158,8 +147,7 @@ export default function AboutPage() {
                               rel="noopener noreferrer"
                               className="inline-flex items-center text-accent hover:text-accent/80 transition-colors"
                             >
-                              <Linkedin className="w-5 h-5 mr-2" />
-                              <span className="font-paragraph text-sm">Connect on LinkedIn</span>
+
                             </a>
                           )}
                         </div>
@@ -172,7 +160,6 @@ export default function AboutPage() {
           </div>
         </section>
       )}
-
       {/* Office Locations */}
       {offices.length > 0 && (
         <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
@@ -240,7 +227,6 @@ export default function AboutPage() {
           </div>
         </section>
       )}
-
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-br from-primary to-accent/20">
         <div className="container mx-auto px-4 text-center">
@@ -260,7 +246,6 @@ export default function AboutPage() {
           </AnimatedElement>
         </div>
       </section>
-
       <Footer />
     </div>
   );

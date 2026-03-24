@@ -9,9 +9,7 @@ export default function Footer() {
           {/* Company Info */}
           <div>
             <h3 className="text-xl font-heading font-bold mb-4">RV Global Aviation</h3>
-            <p className="font-paragraph text-sm text-white/80 mb-4">
-              Leading the way in private aircraft charter with over 35,000 flights per year and global coverage across 40+ offices.
-            </p>
+            <p className="font-paragraph text-sm text-white/80 mb-4">Level 8, Umiya  Business Bay, Cessna Business Park, Marathalli ORR, Bengaluru-560001 Karnataka ,India</p>
             <div className="flex space-x-4">
               <a href="#" className="text-white/80 hover:text-accent transition-colors" aria-label="Facebook">
                 <Facebook className="w-5 h-5" />
@@ -90,9 +88,7 @@ export default function Footer() {
                 <Phone className="w-5 h-5 mr-2 flex-shrink-0 text-accent" />
                 <div>
                   <p className="text-white/80">24/7 Support</p>
-                  <a href="tel:+1-800-000-0000" className="text-white hover:text-accent transition-colors">
-                    +1 (800) 000-0000
-                  </a>
+                  <a href="tel:+1-800-000-0000" className="text-white hover:text-accent transition-colors">+91 8904886662</a>
                 </div>
               </li>
               <li className="flex items-start">
