@@ -78,9 +78,7 @@ export default function Header() {
               height={50}
               className="h-12 w-auto"
             />
-            <span className="text-xl font-heading font-bold text-primary hidden sm:inline">
-              RV Global Aviation
-            </span>
+
           </Link>
 
           {/* Desktop Navigation with Dropdowns */}
