@@ -68,15 +68,15 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 bg-white shadow-md">
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-24">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3">
             <Image 
               src="https://static.wixstatic.com/media/41cdae_a8be753691854c67a2c4452b2dacbd32~mv2.jpeg"
               alt="RV Global Aviation Logo"
-              width={200}
-              height={60}
-              className="h-12 w-auto"
+              width={280}
+              height={84}
+              className="h-16 w-auto"
             />
 
           </Link>
