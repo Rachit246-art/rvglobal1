@@ -4,7 +4,67 @@ import Footer from '@/components/Footer';
 import { Image } from '@/components/ui/image';
 import { BaseCrudService } from '@/integrations';
 import { TeamMembers, OfficeLocations } from '@/entities';
-import { Globe, Award, Users, TrendingUp, MapPin, Phone, Mail, Linkedin } from 'lucide-react';
+import { Globe, Award, Users, TrendingUp, MapPin, Phone, Mail, Linkedin, ChevronLeft, ChevronRight } from 'lucide-react';
+
+// Carousel Component
+const ImageCarousel: React.FC<{ images: string[] }> = ({ images }) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % images.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [images.length]);
+
+  const goToPrevious = () => {
+    setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
+  };
+
+  const goToNext = () => {
+    setCurrentIndex((prev) => (prev + 1) % images.length);
+  };
+
+  return (
+    <div className="relative w-full h-full">
+      {images.map((img, idx) => (
+        <div
+          key={idx}
+          className={`absolute inset-0 transition-opacity duration-1000 ${
+            idx === currentIndex ? 'opacity-100' : 'opacity-0'
+          }`}
+        >
+          <Image src={img} alt={`Slide ${idx + 1}`} className="w-full h-full object-cover" />
+        </div>
+      ))}
+      
+      <button
+        onClick={goToPrevious}
+        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-white/30 hover:bg-white/50 text-white p-2 rounded-full transition-all"
+      >
+        <ChevronLeft className="w-6 h-6" />
+      </button>
+      <button
+        onClick={goToNext}
+        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-white/30 hover:bg-white/50 text-white p-2 rounded-full transition-all"
+      >
+        <ChevronRight className="w-6 h-6" />
+      </button>
+
+      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 flex gap-2">
+        {images.map((_, idx) => (
+          <button
+            key={idx}
+            onClick={() => setCurrentIndex(idx)}
+            className={`w-2 h-2 rounded-full transition-all ${
+              idx === currentIndex ? 'bg-white w-8' : 'bg-white/50'
+            }`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
 
 const AnimatedElement: React.FC<{children: React.ReactNode; className?: string}> = ({ children, className }) => {
   const ref = useRef<HTMLDivElement>(null);
@@ -51,14 +111,16 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      {/* Hero Section */}
+      {/* Hero Section with Image Carousel */}
       <section className="relative min-h-[400px] flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary via-primary/90 to-accent/20">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0" style={{
-            backgroundImage: 'radial-gradient(circle, rgba(83,180,230,0.3) 1px, transparent 1px)',
-            backgroundSize: '30px 30px'
-          }} />
+        <div className="absolute inset-0 w-full h-full">
+          <ImageCarousel images={[
+            'https://images.aircharterservice.com/global/home/acs-chris-leach.jpg',
+            'https://images.aircharterservice.com/global/home/acs-process.jpg',
+            'https://images.aircharterservice.com/global/us-real-id/real-id-img.png'
+          ]} />
         </div>
+        <div className="absolute inset-0 bg-gradient-to-br from-black/50 via-black/30 to-transparent" />
         
         <div className="relative z-10 container mx-auto px-4 py-20 text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white mb-6">
