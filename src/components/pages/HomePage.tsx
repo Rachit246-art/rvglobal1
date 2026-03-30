@@ -142,25 +142,16 @@ export default function HomePage() {
     <div className="min-h-screen bg-background font-paragraph text-primary">
       <Header />
 
-      {/* Hero Section with Dynamic Flight Landing */}
+      {/* Hero Section with Dynamic Flight Landing Carousel */}
       <section className="relative min-h-[75vh] flex items-center overflow-hidden bg-gradient-to-r from-primary/90 to-primary/70">
-        {/* Video Background with Flight Landing Animation */}
+        {/* Dynamic Flight Landing Image Carousel */}
         <div className="absolute inset-0 w-full h-full">
-          <video 
-            autoPlay 
-            muted 
-            loop 
-            playsInline
-            className="w-full h-full object-cover opacity-50"
-          >
-            <source src="https://videos.pexels.com/video-files/3571937/3571937-sd_640_360_30fps.mp4" type="video/mp4" />
-          </video>
-          {/* Fallback Image */}
-          <Image 
-            src="https://static.wixstatic.com/media/41cdae_a8be753691854c67a2c4452b2dacbd32~mv2.jpeg"
-            alt="Aviation Hero Background"
-            className="absolute inset-0 w-full h-full object-cover opacity-40"
-          />
+          <ImageCarousel images={[
+            'https://static.wixstatic.com/media/41cdae_e82c32757f354c6bb444d820c052ae5f~mv2.png?originWidth=1152&originHeight=640',
+            'https://images.aircharterservice.com/global/home/los-angeles-private-jet-charter.jpg?imwidth=1200',
+            'https://images.aircharterservice.com/global/home/new-york-private-jet-charter.jpg?imwidth=1200',
+            'https://images.aircharterservice.com/global/home/miami-private-jet-charter.jpg?imwidth=1200'
+          ]} />
         </div>
         <div className="absolute inset-0 bg-gradient-to-r from-black/50 to-black/30" /> {/* Enhanced overlay for text readability */}
         
