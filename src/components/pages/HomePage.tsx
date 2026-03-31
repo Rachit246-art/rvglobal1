@@ -325,52 +325,61 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Journey & Process Section */}
+      {/* About RV Global Aviation Section */}
       <section className="bg-white">
         <div className="container mx-auto px-4 py-16">
-          <AnimatedElement>
-            <h2 className="text-xl md:text-2xl font-heading font-bold text-primary text-center mb-12 uppercase tracking-wide">
-              LEADING THE WAY IN PRIVATE AIRCRAFT CHARTER
-            </h2>
-          </AnimatedElement>
-
           <div className="max-w-6xl mx-auto">
-            {/* Top Split - Journey */}
-            <div className="flex flex-col md:flex-row">
-              <div className="w-full md:w-1/2 relative group cursor-pointer overflow-hidden">
-                <Image src="https://images.aircharterservice.com/global/home/acs-chris-leach.jpg" alt="Chris Leach" className="w-full h-full object-cover min-h-[300px] transition-transform duration-700 group-hover:scale-105" />
-                <div className="absolute inset-0 bg-black/20 flex items-center justify-center transition-colors group-hover:bg-black/40">
-                  <div className="w-16 h-16 rounded-full border-2 border-white flex items-center justify-center backdrop-blur-sm transition-transform group-hover:scale-110">
-                    <Play className="w-6 h-6 text-white ml-1" />
+            {/* Main Content Split */}
+            <div className="flex flex-col md:flex-row gap-12 items-center">
+              <div className="w-full md:w-1/2">
+                <AnimatedElement>
+                  <Image src="https://images.aircharterservice.com/global/home/acs-chris-leach.jpg" alt="RV Global Aviation" className="w-full h-full object-cover rounded-lg shadow-lg" />
+                </AnimatedElement>
+              </div>
+              <div className="w-full md:w-1/2">
+                <AnimatedElement>
+                  <h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-6 uppercase tracking-wide">
+                    ABOUT RV GLOBAL AVIATION
+                  </h2>
+                  <p className="text-sm text-gray-700 mb-6 leading-relaxed">
+                    RV Global Aviation is a premier aviation solutions provider delivering world-class aircraft charter, cargo logistics, and aviation support services. With a strong global network and customer-first approach, we ensure seamless and efficient operations across continents.
+                  </p>
+                  <div className="bg-accent/10 border-l-4 border-accent p-6 mb-6">
+                    <h3 className="text-lg font-heading font-bold text-primary mb-3 uppercase tracking-wide">OUR MISSION</h3>
+                    <p className="text-sm text-gray-700 leading-relaxed">
+                      To simplify aviation services while maintaining the highest standards of safety, reliability, and operational excellence.
+                    </p>
                   </div>
-                </div>
-              </div>
-              <div className="w-full md:w-1/2 bg-primary text-white p-12 flex flex-col justify-center items-center text-center">
-                <h3 className="text-2xl font-heading font-bold mb-6 uppercase tracking-wide">OUR JOURNEY</h3>
-                <p className="text-sm text-white/80 mb-8 leading-relaxed max-w-md">
-                  Watch our video to see the rise of RV Global Aviation from one man in the basement of his house to one of the largest aircraft charter companies in the world.
-                </p>
-                <Button className="bg-accent hover:bg-accent/90 text-white rounded-full px-8 py-2 text-xs font-bold tracking-wider uppercase transition-all hover:shadow-lg hover:-translate-y-1">
-                  Our History
-                </Button>
-              </div>
-            </div>
-
-            {/* Bottom Split - Process */}
-            <div className="flex flex-col md:flex-row-reverse bg-gray-50">
-              <div className="w-full md:w-1/2 relative overflow-hidden">
-                <Image src="https://images.aircharterservice.com/global/home/acs-process.jpg" alt="Process" className="w-full h-full object-cover min-h-[300px]" />
-              </div>
-              <div className="w-full md:w-1/2 p-12 flex flex-col justify-center items-center text-center">
-                <h3 className="text-2xl font-heading font-bold text-primary mb-6 uppercase tracking-wide leading-tight">
-                  LEARN ABOUT OUR SIMPLE,<br/>FOUR-STAGE PROCESS.
-                </h3>
-                <p className="text-sm text-gray-600 mb-8 leading-relaxed max-w-md">
-                  We take the confusion out of chartering with a four-stage process. Your dedicated charter consultant, backed up by our global network of offices and 24-hour operations team, ensure no matter what your requirements, your charter goes off without a hitch.
-                </p>
-                <Button className="bg-accent hover:bg-accent/90 text-white rounded-full px-8 py-2 text-xs font-bold tracking-wider uppercase transition-all hover:shadow-lg hover:-translate-y-1">
-                  Watch Video
-                </Button>
+                  <div className="space-y-4">
+                    <div className="flex items-start gap-4">
+                      <div className="w-6 h-6 rounded-full bg-accent text-white flex items-center justify-center flex-shrink-0 mt-1">
+                        <span className="text-xs font-bold">✓</span>
+                      </div>
+                      <div>
+                        <h4 className="font-heading font-bold text-primary text-sm uppercase tracking-wide mb-1">Safety First</h4>
+                        <p className="text-xs text-gray-600">Unwavering commitment to the highest safety standards in all operations</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-4">
+                      <div className="w-6 h-6 rounded-full bg-accent text-white flex items-center justify-center flex-shrink-0 mt-1">
+                        <span className="text-xs font-bold">✓</span>
+                      </div>
+                      <div>
+                        <h4 className="font-heading font-bold text-primary text-sm uppercase tracking-wide mb-1">Reliability</h4>
+                        <p className="text-xs text-gray-600">Dependable service you can count on, every single time</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-4">
+                      <div className="w-6 h-6 rounded-full bg-accent text-white flex items-center justify-center flex-shrink-0 mt-1">
+                        <span className="text-xs font-bold">✓</span>
+                      </div>
+                      <div>
+                        <h4 className="font-heading font-bold text-primary text-sm uppercase tracking-wide mb-1">Operational Excellence</h4>
+                        <p className="text-xs text-gray-600">Continuous improvement and best practices in everything we do</p>
+                      </div>
+                    </div>
+                  </div>
+                </AnimatedElement>
               </div>
             </div>
           </div>
