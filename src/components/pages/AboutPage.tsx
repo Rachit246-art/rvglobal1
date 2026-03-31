@@ -131,45 +131,277 @@ export default function AboutPage() {
           </p>
         </div>
       </section>
-      {/* Company Story */}
+      {/* Company Overview */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <AnimatedElement>
               <h2 className="text-3xl md:text-4xl font-heading font-bold text-primary text-center mb-8">
-                Our Journey
+                About RV Global Aviation
               </h2>
               <p className="font-paragraph text-lg text-gray-600 leading-relaxed mb-6">
-                RV Global Aviation has grown from humble beginnings to become one of the world&apos;s leading aircraft charter companies. With over 35,000 flights per year, we have established ourselves as the largest private charter brokerage globally.
-              </p>
-              <p className="font-paragraph text-lg text-gray-600 leading-relaxed mb-6">
-                Our commitment to excellence, personalized service, and global reach has made us the preferred choice for discerning travelers and businesses worldwide. We take pride in our ability to provide tailored solutions for every charter need, from private jets to cargo aircraft.
+                RV Global Aviation is a dynamic aviation company focused on delivering customized solutions to meet diverse client requirements. With expertise in aviation logistics, charter services, and consultancy, we bridge the gap between complex aviation needs and efficient execution.
               </p>
               <p className="font-paragraph text-lg text-gray-600 leading-relaxed">
-                With 40+ offices across 6 continents and access to 50,000 aircraft worldwide, we ensure that no matter where you need to go, we can get you there safely, efficiently, and in style.
+                We are backed by industry professionals with deep knowledge in aircraft operations, regulatory compliance, and global aviation markets. Our strong partnerships with operators worldwide enable us to provide flexible and cost-effective solutions.
               </p>
             </AnimatedElement>
           </div>
         </div>
       </section>
-      {/* Stats Section */}
+
+      {/* Vision & Mission */}
       <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              { icon: TrendingUp, number: '35,000+', label: 'Flights Annually', color: 'text-accent' },
-              { icon: Globe, number: '40+', label: 'Global Offices', color: 'text-accent' },
-              { icon: Users, number: '50,000', label: 'Aircraft Access', color: 'text-accent' },
-              { icon: Award, number: '30+', label: 'Years Experience', color: 'text-accent' },
-            ].map((stat, index) => (
-              <AnimatedElement key={index} className={`delay-${index * 100}`}>
-                <div className="text-center p-8 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
-                  <stat.icon className={`w-12 h-12 mx-auto mb-4 ${stat.color}`} />
-                  <div className="text-4xl font-heading font-bold text-primary mb-2">{stat.number}</div>
-                  <p className="font-paragraph text-gray-600">{stat.label}</p>
+          <div className="max-w-5xl mx-auto">
+            <AnimatedElement>
+              <h2 className="text-3xl md:text-4xl font-heading font-bold text-primary text-center mb-12">
+                Vision & Mission
+              </h2>
+            </AnimatedElement>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+              <AnimatedElement>
+                <div className="bg-white rounded-2xl shadow-lg p-8">
+                  <h3 className="text-2xl font-heading font-bold text-accent mb-4">Vision</h3>
+                  <p className="font-paragraph text-gray-600 leading-relaxed">
+                    To become a globally recognized aviation service provider known for reliability, innovation, and customer satisfaction.
+                  </p>
                 </div>
               </AnimatedElement>
-            ))}
+              <AnimatedElement>
+                <div className="bg-white rounded-2xl shadow-lg p-8">
+                  <h3 className="text-2xl font-heading font-bold text-accent mb-4">Mission</h3>
+                  <ul className="space-y-3 font-paragraph text-gray-600">
+                    <li className="flex items-start">
+                      <span className="text-accent font-bold mr-3">•</span>
+                      <span>Deliver safe, efficient, and timely aviation solutions</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-accent font-bold mr-3">•</span>
+                      <span>Build long-term relationships with clients and partners</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-accent font-bold mr-3">•</span>
+                      <span>Continuously innovate and improve aviation services</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-accent font-bold mr-3">•</span>
+                      <span>Maintain the highest standards of safety and compliance</span>
+                    </li>
+                  </ul>
+                </div>
+              </AnimatedElement>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Services */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto">
+            <AnimatedElement>
+              <h2 className="text-3xl md:text-4xl font-heading font-bold text-primary text-center mb-12">
+                Our Services
+              </h2>
+            </AnimatedElement>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <AnimatedElement>
+                <div className="bg-gradient-to-br from-accent/10 to-transparent rounded-2xl p-8 border border-accent/20">
+                  <h3 className="text-xl font-heading font-bold text-primary mb-3">Aircraft Charter Services</h3>
+                  <p className="font-paragraph text-gray-600">
+                    We provide private jet, business jet, and group charter solutions tailored to client needs. Whether for business travel, VIP movement, or emergency evacuation, we ensure comfort and efficiency.
+                  </p>
+                </div>
+              </AnimatedElement>
+              <AnimatedElement>
+                <div className="bg-gradient-to-br from-accent/10 to-transparent rounded-2xl p-8 border border-accent/20">
+                  <h3 className="text-xl font-heading font-bold text-primary mb-3">Air Cargo Solutions</h3>
+                  <p className="font-paragraph text-gray-600">
+                    We specialize in transporting time-sensitive, oversized, and high-value cargo globally. Our cargo services cater to industries requiring urgent and reliable logistics support.
+                  </p>
+                </div>
+              </AnimatedElement>
+              <AnimatedElement>
+                <div className="bg-gradient-to-br from-accent/10 to-transparent rounded-2xl p-8 border border-accent/20">
+                  <h3 className="text-xl font-heading font-bold text-primary mb-3">Aircraft Management</h3>
+                  <p className="font-paragraph text-gray-600">
+                    End-to-end aircraft management services including maintenance coordination, crew management, and operational oversight.
+                  </p>
+                </div>
+              </AnimatedElement>
+              <AnimatedElement>
+                <div className="bg-gradient-to-br from-accent/10 to-transparent rounded-2xl p-8 border border-accent/20">
+                  <h3 className="text-xl font-heading font-bold text-primary mb-3">Aviation Consulting</h3>
+                  <p className="font-paragraph text-gray-600">
+                    We offer strategic consulting services including route planning, cost optimization, regulatory guidance, and aviation project management.
+                  </p>
+                </div>
+              </AnimatedElement>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Industries We Serve */}
+      <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <AnimatedElement>
+              <h2 className="text-3xl md:text-4xl font-heading font-bold text-primary text-center mb-12">
+                Industries We Serve
+              </h2>
+            </AnimatedElement>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {[
+                'Oil & Gas – Logistics for remote and offshore operations',
+                'Pharmaceuticals – Temperature-sensitive cargo handling',
+                'Automotive – Urgent spare parts transportation',
+                'Government & Defense – Secure and mission-critical operations',
+                'Healthcare – Medical evacuation and emergency response',
+                'Manufacturing – Supply chain and logistics support'
+              ].map((industry, index) => (
+                <AnimatedElement key={index}>
+                  <div className="flex items-start bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow">
+                    <span className="text-accent font-bold text-xl mr-4 flex-shrink-0">✓</span>
+                    <p className="font-paragraph text-gray-600">{industry}</p>
+                  </div>
+                </AnimatedElement>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Operational Strengths */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <AnimatedElement>
+              <h2 className="text-3xl md:text-4xl font-heading font-bold text-primary text-center mb-12">
+                Operational Strengths
+              </h2>
+            </AnimatedElement>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {[
+                'Global Network of Operators',
+                '24/7 Customer Support',
+                'Quick Response Time',
+                'Cost-Effective Solutions',
+                'Flexible Charter Options',
+                'Strong Industry Relationships'
+              ].map((strength, index) => (
+                <AnimatedElement key={index}>
+                  <div className="flex items-center bg-gradient-to-r from-accent/10 to-transparent rounded-lg p-6 border-l-4 border-accent">
+                    <Award className="w-6 h-6 text-accent mr-4 flex-shrink-0" />
+                    <p className="font-paragraph font-medium text-gray-700">{strength}</p>
+                  </div>
+                </AnimatedElement>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Safety & Compliance */}
+      <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <AnimatedElement>
+              <h2 className="text-3xl md:text-4xl font-heading font-bold text-primary text-center mb-8">
+                Safety & Compliance
+              </h2>
+              <p className="font-paragraph text-lg text-gray-600 leading-relaxed text-center mb-8">
+                Safety is at the core of everything we do. RV Global Aviation strictly adheres to international aviation standards and regulations.
+              </p>
+            </AnimatedElement>
+            <div className="bg-white rounded-2xl shadow-lg p-8 md:p-12">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {[
+                  'Certified aircraft and operators',
+                  'Compliance with global aviation authorities',
+                  'Continuous monitoring and risk assessment',
+                  'Experienced and trained crew'
+                ].map((item, index) => (
+                  <AnimatedElement key={index}>
+                    <div className="flex items-start">
+                      <div className="flex-shrink-0">
+                        <div className="flex items-center justify-center h-8 w-8 rounded-md bg-accent text-white">
+                          ✓
+                        </div>
+                      </div>
+                      <p className="ml-4 font-paragraph text-gray-600">{item}</p>
+                    </div>
+                  </AnimatedElement>
+                ))}
+              </div>
+              <p className="font-paragraph text-gray-600 text-center mt-8 pt-8 border-t border-gray-200">
+                Our commitment to safety ensures peace of mind for our clients in every operation.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Us */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <AnimatedElement>
+              <h2 className="text-3xl md:text-4xl font-heading font-bold text-primary text-center mb-12">
+                Why Choose RV Global Aviation
+              </h2>
+            </AnimatedElement>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {[
+                'Reliable and professional service',
+                'Customized solutions for every client',
+                'Strong global presence',
+                'Transparent pricing',
+                'High safety standards',
+                'Experienced aviation team'
+              ].map((reason, index) => (
+                <AnimatedElement key={index}>
+                  <div className="flex items-center bg-gradient-to-r from-primary/5 to-transparent rounded-lg p-6 border border-primary/10">
+                    <Globe className="w-6 h-6 text-accent mr-4 flex-shrink-0" />
+                    <p className="font-paragraph font-medium text-gray-700">{reason}</p>
+                  </div>
+                </AnimatedElement>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Future Expansion */}
+      <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <AnimatedElement>
+              <h2 className="text-3xl md:text-4xl font-heading font-bold text-primary text-center mb-8">
+                Future Expansion
+              </h2>
+              <p className="font-paragraph text-lg text-gray-600 leading-relaxed text-center mb-8">
+                RV Global Aviation aims to expand its footprint globally by:
+              </p>
+            </AnimatedElement>
+            <div className="bg-white rounded-2xl shadow-lg p-8 md:p-12">
+              <ul className="space-y-4">
+                {[
+                  'Strengthening partnerships with international operators',
+                  'Expanding cargo and logistics capabilities',
+                  'Entering new aviation markets',
+                  'Leveraging technology for smarter aviation solutions'
+                ].map((item, index) => (
+                  <AnimatedElement key={index}>
+                    <div className="flex items-start">
+                      <TrendingUp className="w-5 h-5 text-accent mr-4 flex-shrink-0 mt-1" />
+                      <p className="font-paragraph text-gray-600">{item}</p>
+                    </div>
+                  </AnimatedElement>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </section>
