@@ -87,7 +87,6 @@ export default function Footer() {
               <li className="flex items-start">
 
                 <div>
-                  <p className="text-white/80">24/7 Support</p>
 
                 </div>
               </li>
