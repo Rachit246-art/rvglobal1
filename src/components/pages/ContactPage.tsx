@@ -6,7 +6,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { BaseCrudService } from '@/integrations';
 import { ContactInquiries } from '@/entities';
-import { Phone, Mail, MapPin, Clock, CheckCircle, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Mail, MapPin, Clock, CheckCircle, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Image } from '@/components/ui/image';
 
 // Carousel Component
@@ -164,14 +164,8 @@ export default function ContactPage() {
       {/* Contact Info Cards */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
             {[
-              {
-                icon: Phone,
-                title: '24/7 Phone Support',
-                content: '+91 8904886662',
-                link: 'tel:+91-8904886662',
-              },
               {
                 icon: Mail,
                 title: 'Email Us',
