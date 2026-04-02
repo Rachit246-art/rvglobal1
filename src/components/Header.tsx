@@ -116,8 +116,7 @@ export default function Header() {
           {/* CTA Button */}
           <div className="hidden lg:flex items-center space-x-4">
             <a href="tel:+91-8904886662" className="flex items-center text-primary hover:text-accent transition-colors">
-              <Phone className="w-4 h-4 mr-2" />
-              <span className="font-paragraph text-sm font-medium">+91 8904886662</span>
+
             </a>
             <Button 
               onClick={() => window.location.href = '/contact'}
