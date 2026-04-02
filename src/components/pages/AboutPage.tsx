@@ -149,7 +149,6 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-
       {/* Vision & Mission */}
       <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-4">
@@ -195,7 +194,6 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-
       {/* Services */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
@@ -242,7 +240,6 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-
       {/* Industries We Serve */}
       <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-4">
@@ -272,7 +269,6 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-
       {/* Operational Strengths */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
@@ -302,7 +298,6 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-
       {/* Safety & Compliance */}
       <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-4">
@@ -342,7 +337,6 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-
       {/* Why Choose Us */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
@@ -372,7 +366,6 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-
       {/* Future Expansion */}
       <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-4">
@@ -406,54 +399,7 @@ export default function AboutPage() {
         </div>
       </section>
       {/* Team Section */}
-      {teamMembers.length > 0 && (
-        <section className="py-20 bg-white">
-          <div className="container mx-auto px-4">
-            <AnimatedElement>
-              <h2 className="text-3xl md:text-4xl font-heading font-bold text-primary text-center mb-12">
-                Meet Our Team
-              </h2>
-            </AnimatedElement>
 
-            <div className="min-h-[400px]">
-              {isLoading ? null : (
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                  {teamMembers.map((member, index) => (
-                    <AnimatedElement key={member._id} className={`delay-${(index % 3) * 100}`}>
-                      <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
-                        {member.photo && (
-                          <div className="relative h-64 overflow-hidden">
-
-                          </div>
-                        )}
-                        <div className="p-6">
-
-                          <p className="text-accent font-paragraph font-medium mb-3">
-                            {member.role}
-                          </p>
-                          <p className="font-paragraph text-sm text-gray-600 mb-4 line-clamp-4">
-                            {member.bio}
-                          </p>
-                          {member.linkedinProfile && (
-                            <a 
-                              href={member.linkedinProfile} 
-                              target="_blank" 
-                              rel="noopener noreferrer"
-                              className="inline-flex items-center text-accent hover:text-accent/80 transition-colors"
-                            >
-
-                            </a>
-                          )}
-                        </div>
-                      </div>
-                    </AnimatedElement>
-                  ))}
-                </div>
-              )}
-            </div>
-          </div>
-        </section>
-      )}
       {/* Office Locations */}
       {offices.length > 0 && (
         <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
@@ -479,16 +425,13 @@ export default function AboutPage() {
                             <MapPin className="w-4 h-4 mr-2 flex-shrink-0 mt-1 text-accent" />
                             <div className="font-paragraph text-sm">
                               <p>{office.address}</p>
-                              <p>{office.city}, {office.country}</p>
+
                             </div>
                           </div>
                           
                           {office.phoneNumber && (
                             <div className="flex items-center text-gray-600">
-                              <Phone className="w-4 h-4 mr-2 text-accent" />
-                              <a href={`tel:${office.phoneNumber}`} className="font-paragraph text-sm hover:text-accent transition-colors">
-                                {office.phoneNumber}
-                              </a>
+
                             </div>
                           )}
                           
