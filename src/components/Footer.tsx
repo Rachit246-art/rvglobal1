@@ -85,10 +85,10 @@ export default function Footer() {
             <h4 className="text-lg font-heading font-bold mb-4">Contact Us</h4>
             <ul className="space-y-3 font-paragraph text-sm">
               <li className="flex items-start">
-                <Phone className="w-5 h-5 mr-2 flex-shrink-0 text-accent" />
-                <div>
 
-                  <a href="tel:+1-800-000-0000" className="text-white hover:text-accent transition-colors">+91 8904886662</a>
+                <div>
+                  <p className="text-white/80">24/7 Support</p>
+
                 </div>
               </li>
               <li className="flex items-start">
