@@ -9,6 +9,7 @@ import DestinationsPage from '@/components/pages/DestinationsPage';
 import AboutPage from '@/components/pages/AboutPage';
 import BlogPage from '@/components/pages/BlogPage';
 import ContactPage from '@/components/pages/ContactPage';
+import ChardhamYatraPage from '@/components/pages/ChardhamYatraPage';
 
 // Layout component that includes ScrollToTop
 function Layout() {
@@ -73,6 +74,13 @@ const router = createBrowserRouter([
         element: <ContactPage />,
         routeMetadata: {
           pageIdentifier: 'contact',
+        },
+      },
+      {
+        path: "chardham-yatra",
+        element: <ChardhamYatraPage />,
+        routeMetadata: {
+          pageIdentifier: 'chardham-yatra',
         },
       },
       {

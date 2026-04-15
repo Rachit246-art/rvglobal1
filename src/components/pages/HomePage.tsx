@@ -516,6 +516,36 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Chardham Yatra Promotional Section */}
+      <section className="py-16 bg-white border-t border-gray-200">
+        <div className="container mx-auto px-4 max-w-6xl">
+          <AnimatedElement className="relative overflow-hidden rounded-lg shadow-xl bg-gradient-to-r from-primary/90 to-accent/80 h-64 md:h-80 flex items-center justify-center group cursor-pointer hover:shadow-2xl transition-shadow">
+            <div className="absolute inset-0 w-full h-full">
+              <Image 
+                src="https://static.wixstatic.com/media/41cdae_021b209d22b84333b8f9ccd497ca0869~mv2.png?originWidth=1280&originHeight=320" 
+                alt="Chardham Yatra" 
+                className="w-full h-full object-cover opacity-40 group-hover:opacity-50 transition-opacity"
+              />
+            </div>
+            <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-black/40" />
+            
+            <div className="relative z-10 text-center text-white px-4">
+              <h3 className="text-3xl md:text-4xl font-heading font-bold mb-4 uppercase tracking-wide">
+                Chardham Yatra
+              </h3>
+              <p className="text-lg mb-6 text-white/90">
+                5 Nights / 6 Days from Bangalore • ₹2,50,000 per person
+              </p>
+              <Link to="/chardham-yatra">
+                <Button className="bg-accent hover:bg-accent/90 text-white font-heading font-bold tracking-wider py-3 px-8 rounded-lg transition-all hover:shadow-lg hover:-translate-y-1 inline-flex items-center gap-2">
+                  Explore Package <ArrowRight className="w-5 h-5" />
+                </Button>
+              </Link>
+            </div>
+          </AnimatedElement>
+        </div>
+      </section>
+
       {/* Blog Section */}
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4 max-w-6xl">
