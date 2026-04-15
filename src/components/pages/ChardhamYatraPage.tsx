@@ -42,44 +42,50 @@ export default function ChardhamYatraPage() {
     {
       day: 1,
       title: 'Bangalore to Haridwar',
-      description: 'Arrive in Haridwar, the gateway to the Chardham pilgrimage. Check-in to your hotel and visit the sacred Ghat for evening Aarti ceremony.',
-      highlights: ['Arrival in Haridwar', 'Hotel Check-in', 'Ghat Aarti Ceremony', 'Dinner'],
-      meals: 'Dinner'
+      description: 'Depart from Bangalore early morning. Arrive in Haridwar by evening, the gateway to the Chardham pilgrimage. Check-in to your 3-star hotel and freshen up. Visit the sacred Ghat for the evening Aarti ceremony at Har Ki Pauri, one of the most sacred bathing ghats. Experience the spiritual energy and participate in the evening prayers. Dinner at the hotel.',
+      highlights: ['Flight from Bangalore', 'Arrival in Haridwar', 'Hotel Check-in', 'Har Ki Pauri Ghat Aarti', 'Spiritual Experience'],
+      meals: 'Dinner',
+      accommodation: 'Haridwar'
     },
     {
       day: 2,
-      title: 'Haridwar to Kedarnath',
-      description: 'Early morning departure to Kedarnath. Visit the sacred Kedarnath Temple, one of the four Dhams. Experience the spiritual atmosphere and participate in evening prayers.',
-      highlights: ['Kedarnath Temple Darshan', 'Spiritual Ceremony', 'Local Exploration', 'Dinner'],
-      meals: 'Breakfast, Lunch, Dinner'
+      title: 'Haridwar to Kedarnath (First Dham)',
+      description: 'Early morning breakfast and departure to Kedarnath, the abode of Lord Shiva. Drive through scenic mountain roads to Guptkashi (3-4 hours). From Guptkashi, trek or take ponies to Kedarnath Temple (14 km). Visit the sacred Kedarnath Temple, one of the twelve Jyotirlingas. Participate in the evening prayers and Aarti. Overnight stay in Kedarnath.',
+      highlights: ['Scenic Mountain Drive', 'Kedarnath Temple Darshan', 'Jyotirlinga Worship', 'Evening Aarti', 'Spiritual Ceremony'],
+      meals: 'Breakfast, Lunch, Dinner',
+      accommodation: 'Kedarnath'
     },
     {
       day: 3,
-      title: 'Kedarnath to Badrinath',
-      description: 'Travel to Badrinath, the second Dham. Visit the magnificent Badrinath Temple and explore the surrounding natural beauty. Participate in the evening Aarti.',
-      highlights: ['Badrinath Temple Darshan', 'Tapt Kund Hot Springs', 'Evening Aarti', 'Dinner'],
-      meals: 'Breakfast, Lunch, Dinner'
+      title: 'Kedarnath to Badrinath (Second Dham)',
+      description: 'Early morning prayers at Kedarnath Temple. Trek back to Guptkashi and drive to Badrinath (5-6 hours). Arrive at Badrinath and check-in to your hotel. Visit the magnificent Badrinath Temple dedicated to Lord Vishnu. Explore the Tapt Kund hot springs and take a holy dip. Participate in the evening Aarti at the temple. Dinner and overnight stay.',
+      highlights: ['Kedarnath Morning Prayers', 'Scenic Drive to Badrinath', 'Badrinath Temple Darshan', 'Tapt Kund Hot Springs', 'Evening Aarti'],
+      meals: 'Breakfast, Lunch, Dinner',
+      accommodation: 'Badrinath'
     },
     {
       day: 4,
-      title: 'Badrinath to Guptakashi',
-      description: 'Journey to Guptakashi, a sacred town. Visit the Vishwanath Temple and explore the spiritual significance of this pilgrimage site.',
-      highlights: ['Vishwanath Temple', 'Local Market Visit', 'Spiritual Discourse', 'Dinner'],
-      meals: 'Breakfast, Lunch, Dinner'
+      title: 'Badrinath Exploration & Spiritual Discourse',
+      description: 'Full day at Badrinath. Morning prayers at the temple. Visit nearby attractions including Mana Village (last inhabited village before Tibet), Vyas Gufa (cave where sage Vyas meditated), and Brahma Kapal. Attend a spiritual discourse by our experienced guide explaining the significance of Badrinath and the Chardham pilgrimage. Evening Aarti and meditation session. Dinner and overnight stay.',
+      highlights: ['Badrinath Temple Prayers', 'Mana Village Visit', 'Vyas Gufa Exploration', 'Brahma Kapal', 'Spiritual Discourse', 'Meditation Session'],
+      meals: 'Breakfast, Lunch, Dinner',
+      accommodation: 'Badrinath'
     },
     {
       day: 5,
-      title: 'Guptakashi to Rudraprayag',
-      description: 'Travel to Rudraprayag, where the Alaknanda and Mandakini rivers meet. Visit the Rudranath Temple and enjoy the scenic beauty of the Himalayas.',
-      highlights: ['Rudranath Temple', 'River Confluence', 'Nature Walk', 'Dinner'],
-      meals: 'Breakfast, Lunch, Dinner'
+      title: 'Badrinath to Rudraprayag (Third & Fourth Dham)',
+      description: 'Drive from Badrinath to Rudraprayag (4-5 hours). Visit Rudranath Temple where the Alaknanda and Mandakini rivers meet. This sacred confluence is significant in Hindu mythology. Visit Chopta, the mini Switzerland of India, for scenic beauty and nature walks. Explore the local markets and interact with local communities. Evening prayers and dinner. Overnight stay in Rudraprayag.',
+      highlights: ['Rudranath Temple Darshan', 'River Confluence Visit', 'Chopta Scenic Views', 'Nature Walk', 'Local Market Exploration', 'Community Interaction'],
+      meals: 'Breakfast, Lunch, Dinner',
+      accommodation: 'Rudraprayag'
     },
     {
       day: 6,
-      title: 'Rudraprayag to Bangalore',
-      description: 'Final day of your spiritual journey. Depart for Bangalore with blessed memories and spiritual enrichment from the Chardham Yatra.',
-      highlights: ['Breakfast', 'Departure', 'Journey to Bangalore'],
-      meals: 'Breakfast'
+      title: 'Rudraprayag to Bangalore - Return Journey',
+      description: 'Early morning prayers and breakfast. Begin your return journey to Bangalore with blessed memories and spiritual enrichment. Drive to Haridwar (5-6 hours) and catch your flight back to Bangalore. Arrive in Bangalore by evening. End of the sacred Chardham Yatra pilgrimage with divine blessings.',
+      highlights: ['Morning Prayers', 'Scenic Return Drive', 'Haridwar Departure', 'Flight to Bangalore', 'Arrival Home'],
+      meals: 'Breakfast, Lunch',
+      accommodation: 'Travel'
     }
   ];
 
@@ -212,7 +218,7 @@ export default function ChardhamYatraPage() {
                     <p className="text-gray-700 mb-4 leading-relaxed">
                       {day.description}
                     </p>
-                    <div className="flex flex-wrap gap-2">
+                    <div className="flex flex-wrap gap-2 mb-4">
                       {day.highlights.map((highlight, idx) => (
                         <span key={idx} className="inline-flex items-center gap-1 bg-accent/10 text-accent px-3 py-1 rounded-full text-xs font-semibold">
                           <CheckCircle className="w-3 h-3" />
@@ -220,6 +226,11 @@ export default function ChardhamYatraPage() {
                         </span>
                       ))}
                     </div>
+                    {day.accommodation && (
+                      <div className="text-xs text-gray-500 italic border-t pt-3">
+                        <span className="font-semibold">Accommodation:</span> {day.accommodation}
+                      </div>
+                    )}
                   </div>
                 </div>
               </AnimatedElement>
