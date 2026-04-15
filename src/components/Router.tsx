@@ -80,7 +80,7 @@ const router = createBrowserRouter([
         path: "chardham-yatra",
         element: <ChardhamYatraPage />,
         routeMetadata: {
-          pageIdentifier: 'chardham-yatra',
+          pageIdentifier: 'chardham-yatra-by-charted-flight',
         },
       },
       {

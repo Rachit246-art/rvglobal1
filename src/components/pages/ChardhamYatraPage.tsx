@@ -330,7 +330,7 @@ export default function ChardhamYatraPage() {
               Ready for Your Spiritual Journey?
             </h2>
             <p className="text-lg mb-8 text-white/90">
-              Book your Chardham Yatra package today and experience the divine blessings of the four sacred Dhams
+              Book your Chardham Yatra By charted flight package today and experience the divine blessings of the four sacred Dhams
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button className="bg-accent hover:bg-accent/90 text-white font-heading font-bold tracking-wider py-6 px-8 rounded-lg transition-all hover:shadow-lg hover:-translate-y-1 flex items-center justify-center gap-2">

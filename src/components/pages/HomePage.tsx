@@ -214,7 +214,7 @@ export default function HomePage() {
             <div className="absolute inset-0 w-full h-full">
               <Image 
                 src="https://static.wixstatic.com/media/41cdae_021b209d22b84333b8f9ccd497ca0869~mv2.png?originWidth=1280&originHeight=320" 
-                alt="Chardham Yatra" 
+                alt="Chardham Yatra By charted flight" 
                 className="w-full h-full object-cover opacity-40 group-hover:opacity-50 transition-opacity"
               />
             </div>
@@ -222,7 +222,7 @@ export default function HomePage() {
             
             <div className="relative z-10 text-center text-white px-4">
               <h3 className="text-3xl md:text-4xl font-heading font-bold mb-4 uppercase tracking-wide">
-                Chardham Yatra
+                Chardham Yatra By charted flight
               </h3>
               <p className="text-lg mb-6 text-white/90">
                 5 Nights / 6 Days from Bangalore • ₹2,50,000 per person
@@ -553,7 +553,7 @@ export default function HomePage() {
             <div className="absolute inset-0 w-full h-full">
               <Image 
                 src="https://static.wixstatic.com/media/41cdae_021b209d22b84333b8f9ccd497ca0869~mv2.png?originWidth=1280&originHeight=320" 
-                alt="Chardham Yatra" 
+                alt="Chardham Yatra By charted flight" 
                 className="w-full h-full object-cover opacity-40 group-hover:opacity-50 transition-opacity"
               />
             </div>
@@ -561,7 +561,7 @@ export default function HomePage() {
             
             <div className="relative z-10 text-center text-white px-4">
               <h3 className="text-3xl md:text-4xl font-heading font-bold mb-4 uppercase tracking-wide">
-                Chardham Yatra
+                Chardham Yatra By charted flight
               </h3>
               <p className="text-lg mb-6 text-white/90">
                 5 Nights / 6 Days from Bangalore • ₹2,50,000 per person
