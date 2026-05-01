@@ -7,6 +7,7 @@ import DestinationsPage from '@/components/pages/DestinationsPage';
 import AboutPage from '@/components/pages/AboutPage';
 import BlogPage from '@/components/pages/BlogPage';
 import ContactPage from '@/components/pages/ContactPage';
+import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 
 // Layout component that includes ScrollToTop
 function Layout() {
@@ -14,6 +15,7 @@ function Layout() {
     <>
       <ScrollToTop />
       <Outlet />
+      <FloatingWhatsApp />
     </>
   );
 }

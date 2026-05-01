@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Menu, X, Phone, ChevronDown } from 'lucide-react';
@@ -7,7 +7,16 @@ import { Image } from '@/components/ui/image';
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const isActive = (path: string) => location.pathname === path;
 
@@ -66,9 +75,9 @@ export default function Header() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 bg-white shadow-md">
+    <header className={`sticky top-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white/90 backdrop-blur-md shadow-lg py-0' : 'bg-white shadow-md py-2'}`}>
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-28">
+        <div className={`flex items-center justify-between transition-all duration-300 ${scrolled ? 'h-20' : 'h-24'}`}>
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3">
             <Image 

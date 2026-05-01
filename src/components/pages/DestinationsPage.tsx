@@ -67,21 +67,31 @@ const ImageCarousel: React.FC<{ images: string[] }> = ({ images }) => {
   );
 };
 
-const AnimatedElement: React.FC<{children: React.ReactNode; className?: string}> = ({ children, className }) => {
+const AnimatedElement: React.FC<{children: React.ReactNode; className?: string; delay?: number}> = ({ children, className, delay = 0 }) => {
   const ref = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
     const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) { 
-        el.classList.add('opacity-100', 'translate-y-0'); 
-        observer.unobserve(el); 
+      if (entry.isIntersecting) {
+        setTimeout(() => setIsVisible(true), delay);
+        observer.unobserve(el);
       }
-    }, { threshold: 0.1 });
+    }, { threshold: 0.1, rootMargin: '50px' });
     observer.observe(el);
     return () => observer.disconnect();
-  }, []);
-  return <div ref={ref} className={`${className || ''} opacity-0 translate-y-8 transition-all duration-700`}>{children}</div>;
+  }, [delay]);
+
+  return (
+    <div
+      ref={ref}
+      className={`transition-all duration-1000 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'} ${className || ''}`}
+    >
+      {children}
+    </div>
+  );
 };
 
 export default function DestinationsPage() {
