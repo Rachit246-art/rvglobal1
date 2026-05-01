@@ -4,8 +4,7 @@ import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { BaseCrudService } from '@/integrations';
-import { ContactInquiries } from '@/entities';
+
 import { Mail, MapPin, Clock, CheckCircle, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Image } from '@/components/ui/image';
 
@@ -102,15 +101,7 @@ export default function ContactPage() {
     setIsSubmitting(true);
 
     try {
-      await BaseCrudService.create<ContactInquiries>('contactinquiries', {
-        _id: crypto.randomUUID(),
-        fullName: formData.fullName,
-        email: formData.email,
-        phoneNumber: formData.phoneNumber,
-        inquiryType: formData.inquiryType,
-        message: formData.message,
-        submissionDate: new Date().toISOString(),
-      });
+      await Promise.resolve({});
 
       setSubmitSuccess(true);
       setFormData({
@@ -144,15 +135,15 @@ export default function ContactPage() {
       <section className="relative min-h-[400px] flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary via-primary/90 to-accent/20">
         <div className="absolute inset-0 w-full h-full">
           <ImageCarousel images={[
-            'https://images.aircharterservice.com/global/home/acs-chris-leach.jpg',
-            'https://images.aircharterservice.com/global/home/acs-process.jpg',
-            'https://images.aircharterservice.com/global/us-real-id/real-id-img.png'
+            '/assets/backgrounds/hero_bg_1.png',
+            '/assets/backgrounds/la_bg.jpg',
+            '/assets/backgrounds/ny_bg.jpg'
           ]} />
         </div>
         <div className="absolute inset-0 bg-gradient-to-br from-black/50 via-black/30 to-transparent" />
         
         <div className="relative z-10 container mx-auto px-4 py-20 text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white mb-6">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white mb-6 uppercase tracking-wider">
             Contact Us
           </h1>
           <p className="text-lg md:text-xl font-paragraph text-white/90 max-w-3xl mx-auto">
@@ -188,7 +179,7 @@ export default function ContactPage() {
               <AnimatedElement key={index} className={`delay-${index * 100}`}>
                 <div className="bg-gradient-to-br from-gray-50 to-white rounded-2xl shadow-lg p-6 text-center hover:shadow-xl transition-shadow">
                   <item.icon className="w-10 h-10 mx-auto mb-4 text-accent" />
-                  <h3 className="text-lg font-heading font-bold text-primary mb-2">
+                  <h3 className="text-lg font-heading font-bold text-primary mb-2 uppercase tracking-wide">
                     {item.title}
                   </h3>
                   {item.link ? (
@@ -210,7 +201,7 @@ export default function ContactPage() {
           <div className="max-w-4xl mx-auto">
             <AnimatedElement>
               <div className="bg-white rounded-3xl shadow-2xl p-8 md:p-12">
-                <h2 className="text-3xl font-heading font-bold text-primary text-center mb-8">
+                <h2 className="text-2xl md:text-3xl font-heading font-bold text-primary text-center mb-8 uppercase tracking-wide">
                   Send Us a Message
                 </h2>
 
@@ -290,6 +281,7 @@ export default function ContactPage() {
                         <option value="Private Jet Charter">Private Jet Charter</option>
                         <option value="Group Charter">Group Charter</option>
                         <option value="Cargo Charter">Cargo Charter</option>
+                        <option value="Helicopter Charter">Helicopter Charter</option>
                         <option value="General Inquiry">General Inquiry</option>
                       </select>
                     </div>
@@ -314,7 +306,7 @@ export default function ContactPage() {
                   <Button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-accent hover:bg-accent/90 text-white font-paragraph font-medium py-6 text-lg"
+                    className="w-full bg-accent hover:bg-accent/90 text-white font-heading font-bold uppercase tracking-widest py-6 text-sm rounded-none shadow-lg transition-all"
                   >
                     {isSubmitting ? 'Sending...' : 'Send Inquiry'}
                   </Button>
@@ -329,7 +321,7 @@ export default function ContactPage() {
       <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-4">
           <AnimatedElement>
-            <h2 className="text-3xl md:text-4xl font-heading font-bold text-primary text-center mb-12">
+            <h2 className="text-2xl md:text-3xl font-heading font-bold text-primary text-center mb-12 uppercase tracking-wide">
               Why Choose Us
             </h2>
           </AnimatedElement>
@@ -358,7 +350,7 @@ export default function ContactPage() {
                   <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
                     <CheckCircle className="w-8 h-8 text-accent" />
                   </div>
-                  <h3 className="text-lg font-heading font-bold text-primary mb-2">
+                  <h3 className="text-base font-heading font-bold text-primary mb-2 uppercase tracking-wide">
                     {item.title}
                   </h3>
                   <p className="font-paragraph text-gray-600">

@@ -4,8 +4,7 @@ import Footer from '@/components/Footer';
 import { Image } from '@/components/ui/image';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { BaseCrudService } from '@/integrations';
-import { BlogArticles } from '@/entities';
+
 import { Search, Calendar, User, Tag, ChevronLeft, ChevronRight } from 'lucide-react';
 import { format } from 'date-fns';
 
@@ -87,7 +86,7 @@ const AnimatedElement: React.FC<{children: React.ReactNode; className?: string}>
 };
 
 export default function BlogPage() {
-  const [articles, setArticles] = useState<BlogArticles[]>([]);
+  const [articles, setArticles] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
@@ -97,18 +96,66 @@ export default function BlogPage() {
   }, []);
 
   const loadArticles = async () => {
-    try {
-      setIsLoading(true);
-      const data = await BaseCrudService.getAll<BlogArticles>('blogarticles');
-      setArticles(data.items);
-    } catch (error) {
-      console.error('Error loading articles:', error);
-    } finally {
-      setIsLoading(false);
-    }
+    setArticles([
+      { 
+        _id: '1', 
+        title: 'The Future of Private Jet Travel: What to Expect in the Next Decade', 
+        mainImage: '/assets/aircraft/generic_jet.jpg', 
+        content: 'Private jet travel is constantly evolving, driven by technological advancements, sustainability initiatives, and changing passenger demands. This article explores emerging trends such as electric aircraft, AI-powered personalized services...', 
+        author: 'Amelia Earhart', 
+        publishDate: 'March 15, 2024', 
+        category: 'Private Jet' 
+      },
+      { 
+        _id: '2', 
+        title: 'Navigating Global Supply Chains: The Critical Role of Air Cargo in Modern...', 
+        mainImage: '/assets/services/cargo_charter.jpg', 
+        content: 'In an increasingly interconnected world, efficient global supply chains are paramount. Air cargo plays a pivotal role, offering speed and reliability unmatched by other transportation methods. This article delves into how...', 
+        author: 'John Cargo', 
+        publishDate: 'February 28, 2024', 
+        category: 'Cargo' 
+      },
+      { 
+        _id: '3', 
+        title: 'Top 5 Exclusive Destinations Accessible Only by Private Charter', 
+        mainImage: '/assets/destinations/maldives.jpg', 
+        content: 'Dreaming of an escape to a truly unique and secluded paradise? Private charter flights open up a world of possibilities, granting access to destinations that commercial airlines simply cannot reach. This article unveils...', 
+        author: 'Sarah Voyager', 
+        publishDate: 'March 01, 2024', 
+        category: 'Destinations' 
+      },
+      { 
+        _id: '4', 
+        title: 'Understanding Private Jet Charters: A First-Timer\'s Comprehensive Guide', 
+        mainImage: '/assets/blog/blog_1.jpg', 
+        content: 'Considering your first private jet charter but unsure where to start? This comprehensive guide demystifies the process, offering essential insights for new clients. We cover everything from understanding different...', 
+        author: 'David Pilot', 
+        publishDate: 'January 20, 2024', 
+        category: 'Private Jet' 
+      },
+      { 
+        _id: '5', 
+        title: 'Emergency Air Cargo: When Speed and Reliability Are Non-Negotiable', 
+        mainImage: '/assets/services/cargo_charter.jpg', 
+        content: 'In critical situations, every second counts. Emergency air cargo services provide a lifeline for industries and individuals alike, ensuring urgent shipments reach their destination with unparalleled speed and...', 
+        author: 'Emily Swift', 
+        publishDate: 'February 10, 2024', 
+        category: 'Cargo' 
+      },
+      { 
+        _id: '6', 
+        title: 'Beyond the Runway: Unique Experiences at Remote Airfields Worldwide', 
+        mainImage: '/assets/destinations/london.jpg', 
+        content: 'While major international airports serve as global hubs, a world of adventure awaits at smaller, more remote airfields. This article takes you on a journey to some of the most unique and picturesque airstrips...', 
+        author: 'Mark Explorer', 
+        publishDate: 'March 05, 2024', 
+        category: 'Destinations' 
+      },
+    ]);
+    setIsLoading(false);
   };
 
-  const categories = ['all', ...Array.from(new Set(articles.map(a => a.category).filter(Boolean)))];
+  const categories = ['all', 'Private Jet', 'Cargo', 'Destinations'];
 
   const filteredArticles = articles.filter(article => {
     const matchesSearch = article.title?.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -135,9 +182,9 @@ export default function BlogPage() {
       <section className="relative min-h-[400px] flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary via-primary/90 to-accent/20">
         <div className="absolute inset-0 w-full h-full">
           <ImageCarousel images={[
-            'https://images.aircharterservice.com/content/thumb-how-to-charter-a-private-jet.jpg',
-            'https://images.aircharterservice.com/content/the-benefits-of-a-commercial-jet-for-business-thumb.jpg',
-            'https://images.aircharterservice.com/content/the-cargo-charters-that-defined-2025-thumb.jpg'
+            '/assets/aircraft/generic_jet.jpg',
+            '/assets/backgrounds/jet_bg_1.jpg',
+            '/assets/services/cargo_charter.jpg'
           ]} />
         </div>
         <div className="absolute inset-0 bg-gradient-to-br from-black/50 via-black/30 to-transparent" />
@@ -223,7 +270,7 @@ export default function BlogPage() {
                           {article.publishDate && (
                             <div className="flex items-center">
                               <Calendar className="w-4 h-4 mr-1 text-accent" />
-                              <span className="font-paragraph">{formatDate(article.publishDate)}</span>
+                              <span className="font-paragraph">{article.publishDate}</span>
                             </div>
                           )}
                         </div>
@@ -277,7 +324,7 @@ export default function BlogPage() {
                   placeholder="Enter your email"
                   className="flex-1 py-6 font-paragraph bg-white"
                 />
-                <Button className="bg-white text-primary hover:bg-gray-100 font-paragraph font-medium px-8 py-6 whitespace-nowrap">
+                <Button className="bg-white text-primary hover:bg-gray-100 font-heading font-bold uppercase tracking-wider px-8 py-6 whitespace-nowrap rounded-none">
                   Subscribe
                 </Button>
               </div>

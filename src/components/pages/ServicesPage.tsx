@@ -3,8 +3,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Image } from '@/components/ui/image';
 import { Button } from '@/components/ui/button';
-import { BaseCrudService } from '@/integrations';
-import { CharterServices } from '@/entities';
+
 import { Plane, Users, Package, CheckCircle, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -86,7 +85,7 @@ const AnimatedElement: React.FC<{children: React.ReactNode; className?: string}>
 };
 
 export default function ServicesPage() {
-  const [services, setServices] = useState<CharterServices[]>([]);
+  const [services, setServices] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -94,15 +93,37 @@ export default function ServicesPage() {
   }, []);
 
   const loadServices = async () => {
-    try {
-      setIsLoading(true);
-      const data = await BaseCrudService.getAll<CharterServices>('charterservices');
-      setServices(data.items);
-    } catch (error) {
-      console.error('Error loading services:', error);
-    } finally {
-      setIsLoading(false);
-    }
+    setServices([
+      { 
+        _id: '1', 
+        serviceName: 'Private Jet Charter', 
+        serviceImage: '/assets/services/private_jet_charter.jpg', 
+        description: 'Our Private Jet Charter service offers the ultimate in convenience, comfort, and privacy. Tailored to your schedule, you can fly to thousands of airports worldwide, avoiding commercial airport hassles. Enjoy bespoke catering, spacious cabins, and dedicated service from booking to landing.',
+        benefits: 'Time-saving, privacy, comfort, flexibility, access to remote locations, personalized service.'
+      },
+      { 
+        _id: '2', 
+        serviceName: 'Group Charter Flights', 
+        serviceImage: '/assets/services/private_jet_charter.jpg', 
+        description: 'Whether it\'s for corporate events, sports teams, incentive travel, or large family gatherings, our Group Charter Flights provide a seamless travel experience. We manage all logistics, offering customized branding, flexible scheduling, and a choice of aircraft to suit your group\'s specific needs and budget.',
+        benefits: 'Cost-effective for groups, customized itineraries, dedicated check-in, brand visibility, enhanced group cohesion.'
+      },
+      { 
+        _id: '3', 
+        serviceName: 'Cargo Charter Services', 
+        serviceImage: '/assets/services/cargo_charter.jpg', 
+        description: 'When standard shipping isn\'t enough, our Cargo Charter Services provide dedicated aircraft for your critical freight. From humanitarian aid and industrial equipment to high-value goods and dangerous materials, we offer bespoke solutions for time-sensitive and specialized cargo, ensuring secure and timely delivery globally.',
+        benefits: 'Speed, security, capacity for oversized items, global reach, specialized handling, reduced transit times.'
+      },
+      { 
+        _id: '4', 
+        serviceName: 'Helicopter Charter', 
+        serviceImage: '/assets/services/helicopter_charter.jpg', 
+        description: 'Our Helicopter Charter service offers unparalleled access to remote locations, city-to-city transfers, and scenic tours. Ideal for executive travel, aerial surveys, or special events, helicopters provide flexibility and speed, bypassing traffic and reaching destinations inaccessible by fixed-wing aircraft.',
+        benefits: 'Direct access, speed, flexibility, scenic views, ideal for short distances and difficult terrain.'
+      },
+    ]);
+    setIsLoading(false);
   };
 
   return (
@@ -113,15 +134,15 @@ export default function ServicesPage() {
       <section className="relative min-h-[400px] flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary via-primary/90 to-accent/20">
         <div className="absolute inset-0 w-full h-full">
           <ImageCarousel images={[
-            'https://images.aircharterservice.com/global/spotlight/private-charter.jpg',
-            'https://images.aircharterservice.com/global/spotlight/group-charter.jpg',
-            'https://images.aircharterservice.com/global/spotlight/cargo-charter.jpg'
+            '/assets/backgrounds/jet_bg_1.jpg',
+            '/assets/backgrounds/la_bg.jpg',
+            '/assets/services/cargo_charter.jpg'
           ]} />
         </div>
         <div className="absolute inset-0 bg-gradient-to-br from-black/50 via-black/30 to-transparent" />
         
         <div className="relative z-10 container mx-auto px-4 py-20 text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white mb-6">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white mb-6 uppercase tracking-wider">
             Our Charter Services
           </h1>
           <p className="text-lg md:text-xl font-paragraph text-white/90 max-w-3xl mx-auto">
@@ -155,27 +176,28 @@ export default function ServicesPage() {
 
                       {/* Content */}
                       <div className={`${index % 2 === 1 ? 'lg:order-1' : ''}`}>
-                        <div className="flex items-center mb-4">
-                          {index === 0 && <Plane className="w-8 h-8 text-accent mr-3" />}
-                          {index === 1 && <Users className="w-8 h-8 text-accent mr-3" />}
-                          {index === 2 && <Package className="w-8 h-8 text-accent mr-3" />}
-                          <h2 className="text-3xl md:text-4xl font-heading font-bold text-primary">
+                        <div className="flex items-center mb-6">
+                          {index === 0 && <Plane className="w-8 h-8 text-accent mr-4" />}
+                          {index === 1 && <Users className="w-8 h-8 text-accent mr-4" />}
+                          {index === 2 && <Package className="w-8 h-8 text-accent mr-4" />}
+                          {index === 3 && <Plane className="w-8 h-8 text-accent mr-4" />}
+                          <h2 className="text-2xl md:text-3xl font-heading font-bold text-primary">
                             {service.serviceName}
                           </h2>
                         </div>
 
-                        <p className="text-lg font-paragraph text-gray-600 mb-6 leading-relaxed">
+                        <p className="text-sm font-paragraph text-gray-600 mb-8 leading-relaxed">
                           {service.description}
                         </p>
 
                         {service.benefits && (
-                          <div className="mb-6">
-                            <h3 className="text-xl font-heading font-bold text-primary mb-4">Key Benefits</h3>
+                          <div className="mb-8">
+                            <h3 className="text-sm font-heading font-bold text-primary mb-4 uppercase tracking-wider">Key Benefits</h3>
                             <div className="space-y-3">
-                              {service.benefits.split('\n').filter(b => b.trim()).map((benefit, i) => (
+                              {service.benefits.split(',').filter(b => b.trim()).map((benefit, i) => (
                                 <div key={i} className="flex items-start">
-                                  <CheckCircle className="w-5 h-5 text-accent mr-3 flex-shrink-0 mt-1" />
-                                  <p className="font-paragraph text-gray-700">{benefit}</p>
+                                  <CheckCircle className="w-4 h-4 text-accent mr-3 flex-shrink-0 mt-0.5" />
+                                  <p className="font-paragraph text-xs text-gray-600">{benefit.trim()}</p>
                                 </div>
                               ))}
                             </div>
@@ -183,7 +205,7 @@ export default function ServicesPage() {
                         )}
 
                         <Link to="/contact">
-                          <Button className="bg-accent hover:bg-accent/90 text-white font-paragraph font-medium px-8 py-6 text-lg">
+                          <Button className="bg-accent hover:bg-accent/90 text-white font-heading font-bold tracking-wider px-6 py-3 text-xs rounded-sm shadow-md transition-all">
                             Request a Quote
                           </Button>
                         </Link>
@@ -212,7 +234,7 @@ export default function ServicesPage() {
               Our dedicated team is available 24/7 to assist you with your charter needs
             </p>
             <Link to="/contact">
-              <Button className="bg-white text-primary hover:bg-gray-100 font-paragraph font-medium px-8 py-6 text-lg">
+              <Button className="bg-white text-primary hover:bg-gray-100 font-heading font-bold uppercase tracking-wider px-10 py-4 text-sm rounded-none shadow-lg transition-all">
                 Contact Us Now
               </Button>
             </Link>

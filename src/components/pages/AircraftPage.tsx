@@ -3,8 +3,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Image } from '@/components/ui/image';
 import { Button } from '@/components/ui/button';
-import { BaseCrudService } from '@/integrations';
-import { AircraftGuide } from '@/entities';
+
 import { Plane, Users, Gauge, ChevronLeft, ChevronRight } from 'lucide-react';
 
 // Carousel Component
@@ -85,7 +84,7 @@ const AnimatedElement: React.FC<{children: React.ReactNode; className?: string}>
 };
 
 export default function AircraftPage() {
-  const [aircraft, setAircraft] = useState<AircraftGuide[]>([]);
+  const [aircraft, setAircraft] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [selectedType, setSelectedType] = useState<string>('all');
 
@@ -94,22 +93,38 @@ export default function AircraftPage() {
   }, []);
 
   const loadAircraft = async () => {
-    try {
-      setIsLoading(true);
-      const data = await BaseCrudService.getAll<AircraftGuide>('aircraftguide');
-      setAircraft(data.items);
-    } catch (error) {
-      console.error('Error loading aircraft:', error);
-    } finally {
-      setIsLoading(false);
-    }
+    setAircraft([
+      { _id: '1', aircraftName: 'Citation M2', aircraftType: 'Light Jet', passengerCapacity: 7, rangeNm: 1550, manufacturer: 'Cessna', aircraftImage: '/assets/aircraft/citation_m2.png', specifications: 'The Citation M2 is a light jet that combines speed, range, and efficiency. It features a modern Garmin G3000 avionics suite and a comfortable cabin for up to 7 passengers.' },
+      { _id: '2', aircraftName: 'Phenom 300E', aircraftType: 'Light Jet', passengerCapacity: 10, rangeNm: 2010, manufacturer: 'Embraer', aircraftImage: '/assets/aircraft/phenom_300e.png', specifications: 'The Embraer Phenom 300E is a best-selling light jet known for its speed, range, and spacious cabin. It offers advanced avionics and a luxurious interior design.' },
+      { _id: '3', aircraftName: 'Challenger 350', aircraftType: 'Super Mid-Size Jet', passengerCapacity: 10, rangeNm: 3200, manufacturer: 'Bombardier', aircraftImage: '/assets/aircraft/challenger_350.png', specifications: 'The Bombardier Challenger 350 is a super mid-size jet offering exceptional performance, comfort, and reliability. It boasts a large cabin, advanced wing design, and powerful engines.' },
+      { _id: '4', aircraftName: 'Gulfstream G650ER', aircraftType: 'Heavy Jet', passengerCapacity: 19, rangeNm: 7500, manufacturer: 'Gulfstream Aerospace', aircraftImage: '/assets/aircraft/generic_jet.jpg', specifications: 'The Gulfstream G650ER is an ultra-long-range heavy jet, capable of connecting distant cities non-stop. It features a spacious, quiet cabin with advanced technology and luxurious amenities.' },
+      { _id: '5', aircraftName: 'Global 7500', aircraftType: 'Ultra Long-Range Jet', passengerCapacity: 19, rangeNm: 7700, manufacturer: 'Bombardier', aircraftImage: '/assets/aircraft/generic_jet.jpg', specifications: 'The Bombardier Global 7500 is a flagship ultra-long-range business jet, offering an unparalleled combination of range, speed, and comfort. It features four true living spaces and a... ' },
+      { _id: '6', aircraftName: 'Bell 407GXi', aircraftType: 'Helicopter', passengerCapacity: 6, rangeNm: 330, manufacturer: 'Bell Textron', aircraftImage: '/assets/aircraft/generic_helicopter.jpg', specifications: 'The Bell 407GXi is a versatile single-engine helicopter known for its performance, reliability, and advanced Garmin G1000H NXi flight deck. Ideal for corporate transport and utility... ' },
+      { _id: '7', aircraftName: 'Pilatus PC-12 NGX', aircraftType: 'Turboprop', passengerCapacity: 10, rangeNm: 1803, manufacturer: 'Pilatus Aircraft', aircraftImage: '/assets/aircraft/generic_jet.jpg', specifications: 'The Pilatus PC-12 NGX is a single-engine turboprop aircraft renowned for its versatility, reliability, and short-field performance. It offers a large cabin and advanced avionics.' },
+      { _id: '8', aircraftName: 'Legacy 600', aircraftType: 'Large Jet', passengerCapacity: 13, rangeNm: 3250, manufacturer: 'Embraer', aircraftImage: '/assets/aircraft/legacy_600.jpg', specifications: 'The Embraer Legacy 600 is a large business jet derived from the ERJ 135 regional airliner. It offers a spacious three-zone cabin, excellent range, and robust performance.' },
+      { _id: '9', aircraftName: 'Hawker 800XP', aircraftType: 'Mid-Size Jet', passengerCapacity: 8, rangeNm: 2600, manufacturer: 'Hawker Beechcraft', aircraftImage: '/assets/aircraft/generic_jet.jpg', specifications: 'The Hawker 800XP is a popular mid-size business jet known for its comfortable cabin, good range, and reliable performance. It is a workhorse in the private aviation sector.' },
+      { _id: '10', aircraftName: 'Citation X+', aircraftType: 'Super Mid-Size Jet', passengerCapacity: 9, rangeNm: 3460, manufacturer: 'Cessna', aircraftImage: '/assets/aircraft/generic_jet.jpg', specifications: 'The Citation X+ is one of the fastest civilian aircraft in the world, offering impressive speed and range. It features a comfortable cabin and advanced avionics for efficient travel.' },
+      { _id: '11', aircraftName: 'King Air 350i', aircraftType: 'Turboprop', passengerCapacity: 11, rangeNm: 1806, manufacturer: 'Textron Aviation', aircraftImage: '/assets/aircraft/generic_jet.jpg', specifications: 'The King Air 350i is a versatile twin-turboprop aircraft, renowned for its reliability, spacious cabin, and ability to operate from shorter runways. Ideal for regional travel.' },
+      { _id: '12', aircraftName: 'Airbus H145', aircraftType: 'Helicopter', passengerCapacity: 10, rangeNm: 351, manufacturer: 'Airbus Helicopters', aircraftImage: '/assets/aircraft/generic_helicopter.jpg', specifications: 'The Airbus H145 is a high-performance twin-engine helicopter, known for its spacious cabin, low noise levels, and advanced Helionix avionics suite. Suitable for various missions.' },
+    ]);
+    setIsLoading(false);
   };
 
   const filteredAircraft = selectedType === 'all' 
     ? aircraft 
     : aircraft.filter(a => a.aircraftType?.toLowerCase().includes(selectedType.toLowerCase()));
 
-  const aircraftTypes = ['all', ...Array.from(new Set(aircraft.map(a => a.aircraftType).filter(Boolean)))];
+  const aircraftTypes = [
+    'all', 
+    'Light Jet', 
+    'Super Mid-Size Jet', 
+    'Heavy Jet', 
+    'Ultra Long-Range Jet', 
+    'Helicopter', 
+    'Turboprop', 
+    'Large Jet', 
+    'Mid-Size Jet'
+  ];
 
   return (
     <div className="min-h-screen bg-background">
@@ -119,15 +134,15 @@ export default function AircraftPage() {
       <section className="relative min-h-[400px] flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary via-primary/90 to-accent/20">
         <div className="absolute inset-0 w-full h-full">
           <ImageCarousel images={[
-            'https://images.aircharterservice.com/global/aircraft-guide/private-charter/bombardier-global-xrs-6000-1.jpg?imwidth=640',
-            'https://images.aircharterservice.com/content/dassault-falcon-900b-sized.jpg?imwidth=640',
-            'https://images.aircharterservice.com/global/aircraft-guide/private-charter/hawker-800-800xp-1.jpg?imwidth=640'
+            '/assets/aircraft/generic_jet.jpg',
+            '/assets/backgrounds/jet_bg_1.jpg',
+            '/assets/backgrounds/ny_bg.jpg'
           ]} />
         </div>
         <div className="absolute inset-0 bg-gradient-to-br from-black/50 via-black/30 to-transparent" />
         
         <div className="relative z-10 container mx-auto px-4 py-20 text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white mb-6">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white mb-6 uppercase tracking-wider">
             Aircraft Guide
           </h1>
           <p className="text-lg md:text-xl font-paragraph text-white/90 max-w-3xl mx-auto">
@@ -181,7 +196,7 @@ export default function AircraftPage() {
                       )}
                       
                       <div className="p-6">
-                        <h3 className="text-xl font-heading font-bold text-primary mb-4">
+                        <h3 className="text-lg md:text-xl font-heading font-bold text-primary mb-4 uppercase tracking-wide">
                           {plane.aircraftName}
                         </h3>
 
@@ -220,7 +235,7 @@ export default function AircraftPage() {
 
                         <Button 
                           onClick={() => window.location.href = '/contact'}
-                          className="w-full bg-accent hover:bg-accent/90 text-white font-paragraph font-medium"
+                          className="w-full bg-accent hover:bg-accent/90 text-white font-heading font-bold uppercase tracking-wider rounded-none"
                         >
                           Request Quote
                         </Button>
@@ -246,7 +261,7 @@ export default function AircraftPage() {
       <section className="py-20 bg-gradient-to-br from-primary to-accent/20">
         <div className="container mx-auto px-4 text-center">
           <AnimatedElement>
-            <h2 className="text-3xl md:text-4xl font-heading font-bold text-white mb-6">
+            <h2 className="text-2xl md:text-3xl font-heading font-bold text-white mb-6 uppercase tracking-wider">
               Need Help Choosing the Right Aircraft?
             </h2>
             <p className="text-lg font-paragraph text-white/90 mb-8 max-w-2xl mx-auto">
@@ -254,7 +269,7 @@ export default function AircraftPage() {
             </p>
             <Button 
               onClick={() => window.location.href = '/contact'}
-              className="bg-white text-primary hover:bg-gray-100 font-paragraph font-medium px-8 py-6 text-lg"
+              className="bg-white text-primary hover:bg-gray-100 font-heading font-bold uppercase tracking-wider px-10 py-4 text-sm rounded-none shadow-lg transition-all"
             >
               Speak to an Expert
             </Button>

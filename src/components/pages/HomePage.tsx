@@ -6,8 +6,7 @@ import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Image } from '@/components/ui/image';
-import { BaseCrudService } from '@/integrations';
-import { CharterServices, AircraftGuide, DestinationGuides, BlogArticles } from '@/entities';
+
 import { Plane, Users, Package, Globe, Phone, ChevronLeft, ChevronRight, Play, ArrowRight, Mail, PhoneCall, MessageSquare } from 'lucide-react';
 
 // Carousel Component
@@ -103,10 +102,10 @@ export default function HomePage() {
   const [charterType, setCharterType] = useState<'passenger' | 'cargo'>('passenger');
   const [activeTab, setActiveTab] = useState<'jets' | 'destinations'>('jets');
   
-  const [services, setServices] = useState<CharterServices[]>([]);
-  const [aircraft, setAircraft] = useState<AircraftGuide[]>([]);
-  const [destinations, setDestinations] = useState<DestinationGuides[]>([]);
-  const [blogArticles, setBlogArticles] = useState<BlogArticles[]>([]);
+  const [services, setServices] = useState<any[]>([]);
+  const [aircraft, setAircraft] = useState<any[]>([]);
+  const [destinations, setDestinations] = useState<any[]>([]);
+  const [blogArticles, setBlogArticles] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -114,23 +113,66 @@ export default function HomePage() {
   }, []);
 
   const loadData = async () => {
-    try {
-      setIsLoading(true);
-      const [servicesData, aircraftData, destinationsData, blogData] = await Promise.all([
-        BaseCrudService.getAll<CharterServices>('charterservices', {}, { limit: 3 }),
-        BaseCrudService.getAll<AircraftGuide>('aircraftguide', {}, { limit: 4 }),
-        BaseCrudService.getAll<DestinationGuides>('destinationguides', {}, { limit: 4 }),
-        BaseCrudService.getAll<BlogArticles>('blogarticles', {}, { limit: 3 }),
-      ]);
-      setServices(servicesData.items);
-      setAircraft(aircraftData.items);
-      setDestinations(destinationsData.items);
-      setBlogArticles(blogData.items);
-    } catch (error) {
-      console.error('Error loading data:', error);
-    } finally {
-      setIsLoading(false);
-    }
+    setServices([
+      { 
+        _id: '1', 
+        serviceName: 'PRIVATE JET CHARTER', 
+        serviceImage: '/assets/services/private_jet_charter.jpg', 
+        description: 'Experience unparalleled luxury and flexibility with our private jet services.',
+        shortDescription: 'Experience unparalleled luxury and flexibility with our private jet services.'
+      },
+      { 
+        _id: '2', 
+        serviceName: 'GROUP CHARTER FLIGHTS', 
+        serviceImage: '/assets/services/private_jet_charter.jpg', 
+        description: 'Efficient and customized air travel solutions for groups of any size.',
+        shortDescription: 'Efficient and customized air travel solutions for groups of any size.'
+      },
+      { 
+        _id: '3', 
+        serviceName: 'CARGO CHARTER SERVICES', 
+        serviceImage: '/assets/services/cargo_charter.jpg', 
+        description: 'Reliable and rapid air freight solutions for urgent or oversized cargo.',
+        shortDescription: 'Reliable and rapid air freight solutions for urgent or oversized cargo.'
+      },
+    ]);
+    
+    setAircraft([
+      { _id: '1', aircraftName: 'Citation M2', passengerCapacity: 7, aircraftImage: '/assets/aircraft/citation_m2.png' },
+      { _id: '2', aircraftName: 'Phenom 300E', passengerCapacity: 10, aircraftImage: '/assets/aircraft/phenom_300e.png' },
+      { _id: '3', aircraftName: 'Challenger 350', passengerCapacity: 10, aircraftImage: '/assets/aircraft/challenger_350.png' },
+      { _id: '4', aircraftName: 'Gulfstream G650ER', passengerCapacity: 19, aircraftImage: '/assets/aircraft/generic_jet.jpg' },
+    ]);
+
+    setDestinations([
+      { _id: '1', destinationName: 'Aspen', description: 'Nestled in the Rocky Mountains, Aspen is a premier destination for luxury ski vacations and outdoor adventures. Private jet charters offer...', destinationImage: '/assets/destinations/aspen.jpg' },
+      { _id: '2', destinationName: 'Maldives', description: 'The Maldives, an archipelago of breathtaking coral islands, is the epitome of luxury tropical escapes. Chartering a private jet is the preferre...', destinationImage: '/assets/destinations/maldives.jpg' },
+      { _id: '3', destinationName: 'St. Barts', description: 'Saint Barthélemy, or St. Barts, is a jewel of the Caribbean, renowned for its pristine beaches, gourmet dining, and exclusive atmosphere. Private jet...', destinationImage: '/assets/destinations/st_barts.jpg' },
+      { _id: '4', destinationName: 'Mykonos', description: 'Mykonos, a glamorous Greek island in the Aegean Sea, is famous for its vibrant nightlife, stunning beaches, and iconic Cycladic architecture...', destinationImage: '/assets/destinations/mykonos.jpg' },
+    ]);
+
+    setBlogArticles([
+      { 
+        _id: '1', 
+        title: 'THE FUTURE OF PRIVATE JET TRAVEL: WHAT TO EXPECT IN THE NEXT DECADE', 
+        content: 'Private jet travel is constantly evolving, driven by technological advancements, sustainability initiatives, and changing passenger demands. This article explores emerging trends such as electric aircraft, AI-powered personalized services, and the growing focus on reducing the carbon footprint of private aviation.', 
+        mainImage: '/assets/aircraft/generic_jet.jpg' 
+      },
+      { 
+        _id: '2', 
+        title: 'NAVIGATING GLOBAL SUPPLY CHAINS: THE CRITICAL ROLE OF AIR CARGO IN MODERN LOGISTICS', 
+        content: 'In an increasingly interconnected world, efficient global supply chains are paramount. Air cargo plays a pivotal role, offering speed and reliability unmatched by other transportation methods. This article delves into how businesses are leveraging air freight to overcome supply chain disruptions and meet the demands of a global market.', 
+        mainImage: '/assets/services/cargo_charter.jpg' 
+      },
+      { 
+        _id: '3', 
+        title: 'TOP 5 EXCLUSIVE DESTINATIONS ACCESSIBLE ONLY BY PRIVATE CHARTER', 
+        content: 'Dreaming of an escape to a truly unique and secluded paradise? Private charter flights open up a world of possibilities, granting access to destinations that commercial airlines simply cannot reach. This article unveils five breathtaking locations, from remote island retreats to mountain hideaways, that offer the ultimate in exclusivity and luxury.', 
+        mainImage: '/assets/destinations/maldives.jpg' 
+      },
+    ]);
+
+    setIsLoading(false); 
   };
 
   const handleInquire = (e: React.FormEvent) => {
@@ -147,10 +189,10 @@ export default function HomePage() {
         {/* Dynamic Flight Landing Image Carousel */}
         <div className="absolute inset-0 w-full h-full">
           <ImageCarousel images={[
-            'https://static.wixstatic.com/media/41cdae_e82c32757f354c6bb444d820c052ae5f~mv2.png?originWidth=1152&originHeight=640',
-            'https://images.aircharterservice.com/global/home/los-angeles-private-jet-charter.jpg?imwidth=1200',
-            'https://images.aircharterservice.com/global/home/new-york-private-jet-charter.jpg?imwidth=1200',
-            'https://images.aircharterservice.com/global/home/miami-private-jet-charter.jpg?imwidth=1200'
+            '/assets/backgrounds/hero_bg_1.png',
+            '/assets/backgrounds/la_bg.jpg',
+            '/assets/backgrounds/ny_bg.jpg',
+            '/assets/backgrounds/miami_bg.jpg'
           ]} />
         </div>
         <div className="absolute inset-0 bg-gradient-to-r from-black/50 to-black/30" /> {/* Enhanced overlay for text readability */}
@@ -207,35 +249,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Chardham Yatra Promotional Section - TOP PRIORITY */}
-      <section className="py-16 bg-white border-b border-gray-200">
-        <div className="container mx-auto px-4 max-w-6xl">
-          <AnimatedElement className="relative overflow-hidden rounded-lg shadow-xl bg-gradient-to-r from-primary/90 to-accent/80 h-64 md:h-80 flex items-center justify-center group cursor-pointer hover:shadow-2xl transition-shadow">
-            <div className="absolute inset-0 w-full h-full">
-              <Image 
-                src="https://static.wixstatic.com/media/41cdae_021b209d22b84333b8f9ccd497ca0869~mv2.png?originWidth=1280&originHeight=320" 
-                alt="Chardham Yatra By charted flight" 
-                className="w-full h-full object-cover opacity-40 group-hover:opacity-50 transition-opacity"
-              />
-            </div>
-            <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-black/40" />
-            
-            <div className="relative z-10 text-center text-white px-4">
-              <h3 className="text-3xl md:text-4xl font-heading font-bold mb-4 uppercase tracking-wide">
-                Chardham Yatra By charted flight
-              </h3>
-              <p className="text-lg mb-6 text-white/90">
-                5 Nights / 6 Days from Bangalore • ₹2,50,000 per person
-              </p>
-              <Link to="/chardham-yatra">
-                <Button className="bg-accent hover:bg-accent/90 text-white font-heading font-bold tracking-wider py-3 px-8 rounded-lg transition-all hover:shadow-lg hover:-translate-y-1 inline-flex items-center gap-2">
-                  Explore Package <ArrowRight className="w-5 h-5" />
-                </Button>
-              </Link>
-            </div>
-          </AnimatedElement>
-        </div>
-      </section>
 
       {/* Services Section */}
       <section className="py-20 bg-white">
@@ -258,50 +271,28 @@ export default function HomePage() {
                   <div className="h-10 w-32 bg-gray-200 rounded-full"></div>
                 </div>
               ))
-            ) : services.length > 0 ? (
-              services.map((service, index) => (
-                <AnimatedElement key={service._id} delay={index * 150} className="flex flex-col items-center text-center group">
-                  <div className="w-full h-56 mb-6 overflow-hidden relative">
-                    <Image 
-                      src={service.serviceImage || 'https://static.wixstatic.com/media/41cdae_3413f7a4474b49b2ab4b94c44ce664d6~mv2.png?originWidth=384&originHeight=192'} 
-                      alt={service.serviceName || 'Service'} 
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    />
-                  </div>
-                  <h3 className="text-lg font-heading font-bold text-primary mb-4 uppercase tracking-wide">
-                    {service.serviceName}
-                  </h3>
-                  <p className="text-sm text-gray-600 mb-6 leading-relaxed px-4 flex-grow">
-                    {service.shortDescription || service.description?.substring(0, 120) + '...'}
-                  </p>
-                  <Link to={`/services/${service._id}`}>
-                    <Button className="bg-accent hover:bg-accent/90 text-white rounded-full px-8 py-2 text-xs font-bold tracking-wider uppercase transition-all hover:shadow-lg hover:-translate-y-1">
-                      Learn More
-                    </Button>
-                  </Link>
-                </AnimatedElement>
-              ))
-            ) : (
-              // Fallback static content if DB is empty
-              [
-                { title: 'PRIVATE JET CHARTER', img: 'https://images.aircharterservice.com/global/spotlight/private-charter.jpg', desc: 'RV Global Aviation can offer helicopters, private jets and executive airliner charters, as well as a huge range of small specialist aircraft for all business and leisure purposes.' },
-                { title: 'GROUP AIRCRAFT CHARTER', img: 'https://images.aircharterservice.com/global/spotlight/group-charter.jpg', desc: 'RV Global Aviation can arrange charters for larger groups of passengers on aircraft including regional jet airliners and turboprops, VIP & executive airliners, as well as narrow and wide-body airliners.' },
-                { title: 'CARGO AIRCRAFT CHARTER', img: 'https://images.aircharterservice.com/global/spotlight/cargo-charter.jpg', desc: 'Our award winning cargo department offers a full range of cargo aircraft and helicopters, from shipment of small urgent packages to large, heavy outsize consignments.' }
-              ].map((item, index) => (
-                <AnimatedElement key={index} delay={index * 150} className="flex flex-col items-center text-center group">
-                  <div className="w-full h-56 mb-6 overflow-hidden relative">
-                    <Image src={item.img} alt={item.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                  </div>
-                  <h3 className="text-lg font-heading font-bold text-primary mb-4 uppercase tracking-wide">{item.title}</h3>
-                  <p className="text-sm text-gray-600 mb-6 leading-relaxed px-4 flex-grow">{item.desc}</p>
-                  <Link to="/services">
-                    <Button className="bg-accent hover:bg-accent/90 text-white rounded-full px-8 py-2 text-xs font-bold tracking-wider uppercase transition-all hover:shadow-lg hover:-translate-y-1">
-                      Learn More
-                    </Button>
-                  </Link>
-                </AnimatedElement>
-              ))
-            )}
+            ) : services.map((service, index) => (
+              <AnimatedElement key={service._id} delay={index * 150} className="flex flex-col items-center text-center group">
+                <div className="w-full h-56 mb-6 overflow-hidden relative">
+                  <Image 
+                    src={service.serviceImage} 
+                    alt={service.serviceName} 
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                </div>
+                <h3 className="text-lg font-heading font-bold text-primary mb-4 uppercase tracking-wide">
+                  {service.serviceName}
+                </h3>
+                <p className="text-sm text-gray-600 mb-6 leading-relaxed px-4 flex-grow">
+                  {service.shortDescription || service.description}
+                </p>
+                <Link to={`/services`}>
+                  <Button className="bg-accent hover:bg-accent/90 text-white rounded-full px-8 py-2 text-xs font-bold tracking-wider uppercase transition-all hover:shadow-lg hover:-translate-y-1">
+                    Learn More
+                  </Button>
+                </Link>
+              </AnimatedElement>
+            ))}
           </div>
         </div>
       </section>
@@ -317,14 +308,14 @@ export default function HomePage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto mb-16">
             {[
-              { icon: 'https://images.aircharterservice.com/icons/ico_globe.svg', number: '35,000+', title: 'Flights per year', desc: 'The largest private charter brokerage in the world.' },
-              { icon: 'https://images.aircharterservice.com/icons/ico_globe.svg', number: '40+', title: 'Global coverage', desc: '40+ offices across 6 continents.' },
-              { icon: 'https://images.aircharterservice.com/icons//ico_jet.svg', number: '50,000', title: 'Largest range of aircraft', desc: 'Access to 50,000 aircraft across the globe.' },
-              { icon: 'https://images.aircharterservice.com/icons/ico_phone24.svg', number: '24/7', title: 'Personal service', desc: 'Dedicated account managers available 24/7.' },
+              { icon: '/assets/icons/globe.svg', number: '35,000+', title: 'Flights per year', desc: 'The largest private charter brokerage in the world.' },
+              { icon: '/assets/icons/globe.svg', number: '40+', title: 'Global coverage', desc: '40+ offices across 6 continents.' },
+              { icon: '/assets/icons/jet.svg', number: '50,000', title: 'Largest range of aircraft', desc: 'Access to 50,000 aircraft across the globe.' },
+              { icon: '/assets/icons/phone.svg', number: '24/7', title: 'Personal service', desc: 'Dedicated account managers available 24/7.' },
             ].map((item, index) => (
               <AnimatedElement key={index} delay={index * 100} className="flex flex-col items-center text-center px-4">
                 <div className="h-12 flex items-center justify-center mb-4">
-                  <Image src={item.icon} alt={item.title} className="h-10 w-auto opacity-80" onError={(e) => { e.currentTarget.src = 'https://static.wixstatic.com/media/41cdae_64108c82ff4a4a0cb43a0e88ab48b288~mv2.png?originWidth=128&originHeight=128'; e.currentTarget.className = 'h-10 w-10 opacity-20'; }} />
+                  <Image src={item.icon} alt={item.title} className="h-10 w-auto opacity-80" />
                 </div>
                 <div className="text-2xl font-heading font-bold text-primary mb-1">{item.number}</div>
                 <h3 className="text-sm font-bold text-primary mb-2">{item.title}</h3>
@@ -336,13 +327,13 @@ export default function HomePage() {
           {/* REAL ID Banner */}
           <AnimatedElement className="max-w-4xl mx-auto bg-primary text-white flex flex-col md:flex-row items-center justify-between p-0 overflow-hidden shadow-xl">
             <div className="w-full md:w-1/3 h-48 md:h-auto relative">
-              <Image src="https://images.aircharterservice.com/global/us-real-id/real-id-img.png" alt="Real ID" className="w-full h-full object-cover" />
+              <Image src="/assets/backgrounds/real_id.png" alt="Real ID" className="w-full h-full object-cover" />
             </div>
             <div className="w-full md:w-2/3 p-8 flex flex-col md:flex-row items-center justify-between gap-6">
               <div className="text-center md:text-left">
                 <div className="flex items-center justify-center md:justify-start gap-2 mb-2">
                   <span className="text-xl font-light">Are you</span>
-                  <Image src="https://images.aircharterservice.com/global/us-real-id/real-id-logo.svg" alt="REAL ID" className="h-6 bg-white px-2 rounded" onError={(e) => e.currentTarget.style.display = 'none'} />
+                  <Image src="/assets/icons/globe.svg" alt="REAL ID" className="h-6 bg-white px-2 rounded" />
                   <span className="text-xl font-light">ready?</span>
                 </div>
                 <p className="text-sm text-white/80">Required for all domestic flights since May 2025.</p>
@@ -363,10 +354,10 @@ export default function HomePage() {
             <div className="flex flex-col md:flex-row gap-12 items-center">
               <div className="w-full md:w-1/2">
                 <AnimatedElement>
-                  <Image src="https://images.aircharterservice.com/global/home/acs-chris-leach.jpg" alt="RV Global Aviation" className="w-full h-full object-cover rounded-lg shadow-lg" />
+                  <Image src="/assets/backgrounds/owner.jpg" alt="RV Global Aviation" className="w-full h-full object-cover rounded-lg shadow-lg" />
                 </AnimatedElement>
               </div>
-              <div className="w-full md:w-1/2">
+                <div className="w-full md:w-1/2">
                 <AnimatedElement>
                   <h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-6 uppercase tracking-wide">
                     ABOUT RV GLOBAL AVIATION
@@ -454,12 +445,12 @@ export default function HomePage() {
             ) : activeTab === 'jets' ? (
               <AnimatedElement className="space-y-10">
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                  {aircraft.length > 0 ? aircraft.map((plane, index) => (
+                  {aircraft.map((plane, index) => (
                     <div key={plane._id} className="bg-white border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 group">
                       <div className="h-40 overflow-hidden relative">
                         <Image 
-                          src={plane.aircraftImage || 'https://static.wixstatic.com/media/41cdae_4e423c58051943998250833ad41b8c0c~mv2.png?originWidth=256&originHeight=128'} 
-                          alt={plane.aircraftName || 'Aircraft'} 
+                          src={plane.aircraftImage} 
+                          alt={plane.aircraftName} 
                           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                         />
                       </div>
@@ -468,25 +459,7 @@ export default function HomePage() {
                         <p className="text-xs text-gray-500">Passengers {plane.passengerCapacity}</p>
                       </div>
                     </div>
-                  )) : (
-                    // Fallback static data
-                    [
-                      { name: 'Bombardier Global Express XRS', pax: 12, img: 'https://images.aircharterservice.com/global/aircraft-guide/private-charter/bombardier-global-xrs-6000-1.jpg?imwidth=640' },
-                      { name: 'Dassault Falcon 900B', pax: 14, img: 'https://images.aircharterservice.com/content/dassault-falcon-900b-sized.jpg?imwidth=640' },
-                      { name: 'Hawker Beechcraft 800XP', pax: 8, img: 'https://images.aircharterservice.com/global/aircraft-guide/private-charter/hawker-800-800xp-1.jpg?imwidth=640' },
-                      { name: 'Hawker Beechcraft 900XP', pax: 8, img: 'https://images.aircharterservice.com/global/aircraft-guide/private-charter/hawker-beechcraft-900xp-1.jpg?imwidth=640' }
-                    ].map((plane, i) => (
-                      <div key={i} className="bg-white border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 group">
-                        <div className="h-40 overflow-hidden relative">
-                          <Image src={plane.img} alt={plane.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                        </div>
-                        <div className="p-4 text-center">
-                          <h4 className="font-bold text-primary text-sm mb-1">{plane.name}</h4>
-                          <p className="text-xs text-gray-500">Passengers {plane.pax}</p>
-                        </div>
-                      </div>
-                    ))
-                  )}
+                  ))}
                 </div>
                 <div className="text-center">
                   <Link to="/aircraft">
@@ -499,12 +472,12 @@ export default function HomePage() {
             ) : (
               <AnimatedElement className="space-y-10">
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                  {destinations.length > 0 ? destinations.map((dest, index) => (
+                  {destinations.map((dest, index) => (
                     <div key={dest._id} className="bg-white border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col">
                       <div className="h-40 overflow-hidden relative">
                         <Image 
-                          src={dest.destinationImage || 'https://static.wixstatic.com/media/41cdae_f3731956007d43e8aa22d8658878a93e~mv2.png?originWidth=256&originHeight=128'} 
-                          alt={dest.destinationName || 'Destination'} 
+                          src={dest.destinationImage} 
+                          alt={dest.destinationName} 
                           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                         />
                       </div>
@@ -513,25 +486,7 @@ export default function HomePage() {
                         <p className="text-xs text-gray-500 line-clamp-4 flex-grow">{dest.description}</p>
                       </div>
                     </div>
-                  )) : (
-                    // Fallback static data
-                    [
-                      { name: 'Los Angeles', desc: 'Toasted beaches, emerald landscapes and neatly arranged boulevards – Los Angeles is a place that spawns dreamers and rebels alike.', img: 'https://images.aircharterservice.com/global/home/los-angeles-private-jet-charter.jpg?imwidth=640' },
-                      { name: 'New York', desc: 'From towering cityscapes to the raw energy emanating from street performers in Central Park, a visit to New York is as thrilling as its world-renowned Broadway shows.', img: 'https://images.aircharterservice.com/global/home/new-york-private-jet-charter.jpg?imwidth=640' },
-                      { name: 'Miami', desc: 'Miami and Miami Beach are some of Florida’s most eclectic areas, offering a real diverse mix of cultures as well as iconic South Beach.', img: 'https://images.aircharterservice.com/global/home/miami-private-jet-charter.jpg?imwidth=640' },
-                      { name: 'Las Vegas', desc: 'Las Vegas is the original Sin City, with its iconic Strip lined with some of the glitziest hotels in the world.', img: 'https://images.aircharterservice.com/global/home/las-vegas-private-jet-charter.jpg?imwidth=640' }
-                    ].map((dest, i) => (
-                      <div key={i} className="bg-white border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col">
-                        <div className="h-40 overflow-hidden relative">
-                          <Image src={dest.img} alt={dest.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                        </div>
-                        <div className="p-4 text-center flex-grow flex flex-col">
-                          <h4 className="font-bold text-primary text-sm mb-2">{dest.name}</h4>
-                          <p className="text-xs text-gray-500 line-clamp-4 flex-grow">{dest.desc}</p>
-                        </div>
-                      </div>
-                    ))
-                  )}
+                  ))}
                 </div>
                 <div className="text-center">
                   <Link to="/destinations">
@@ -546,98 +501,44 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Chardham Yatra Promotional Section */}
-      <section className="py-16 bg-white border-t border-gray-200">
-        <div className="container mx-auto px-4 max-w-6xl">
-          <AnimatedElement className="relative overflow-hidden rounded-lg shadow-xl bg-gradient-to-r from-primary/90 to-accent/80 h-64 md:h-80 flex items-center justify-center group cursor-pointer hover:shadow-2xl transition-shadow">
-            <div className="absolute inset-0 w-full h-full">
-              <Image 
-                src="https://static.wixstatic.com/media/41cdae_021b209d22b84333b8f9ccd497ca0869~mv2.png?originWidth=1280&originHeight=320" 
-                alt="Chardham Yatra By charted flight" 
-                className="w-full h-full object-cover opacity-40 group-hover:opacity-50 transition-opacity"
-              />
-            </div>
-            <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-black/40" />
-            
-            <div className="relative z-10 text-center text-white px-4">
-              <h3 className="text-3xl md:text-4xl font-heading font-bold mb-4 uppercase tracking-wide">
-                Chardham Yatra By charted flight
-              </h3>
-              <p className="text-lg mb-6 text-white/90">
-                5 Nights / 6 Days from Bangalore • ₹2,50,000 per person
-              </p>
-              <Link to="/chardham-yatra">
-                <Button className="bg-accent hover:bg-accent/90 text-white font-heading font-bold tracking-wider py-3 px-8 rounded-lg transition-all hover:shadow-lg hover:-translate-y-1 inline-flex items-center gap-2">
-                  Explore Package <ArrowRight className="w-5 h-5" />
-                </Button>
-              </Link>
-            </div>
-          </AnimatedElement>
-        </div>
-      </section>
-
       {/* Blog Section */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-4 max-w-6xl">
           <AnimatedElement>
-            <h2 className="text-xl md:text-2xl font-heading font-bold text-primary text-center mb-12 uppercase tracking-wide">
+            <h2 className="text-2xl md:text-3xl font-heading font-bold text-primary text-center mb-16 uppercase tracking-widest">
               POPULAR BLOG STORIES
             </h2>
           </AnimatedElement>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             {isLoading ? (
               Array(3).fill(0).map((_, i) => (
                 <div key={i} className="animate-pulse flex flex-col items-center">
-                  <div className="w-full h-48 bg-gray-200 mb-4"></div>
+                  <div className="w-full aspect-video bg-gray-200 mb-6 rounded-lg"></div>
                   <div className="h-6 w-3/4 bg-gray-200 mb-4"></div>
                   <div className="h-20 w-full bg-gray-200 mb-6"></div>
-                  <div className="h-8 w-24 bg-gray-200 rounded-full"></div>
+                  <div className="h-10 w-32 bg-gray-200 rounded-full"></div>
                 </div>
               ))
-            ) : blogArticles.length > 0 ? (
+            ) : (
               blogArticles.map((article, index) => (
                 <AnimatedElement key={article._id} delay={index * 150} className="flex flex-col items-center text-center group">
-                  <div className="w-full h-48 mb-6 overflow-hidden relative">
+                  <div className="w-full aspect-video mb-8 overflow-hidden relative rounded-sm shadow-sm">
                     <Image 
-                      src={article.mainImage || 'https://static.wixstatic.com/media/41cdae_3c11898b9ef0472cba62e1ba5eee9ce5~mv2.png?originWidth=320&originHeight=192'} 
-                      alt={article.title || 'Blog'} 
+                      src={article.mainImage} 
+                      alt={article.title} 
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                     />
                   </div>
-                  <h3 className="text-sm font-heading font-bold text-primary mb-4 uppercase tracking-wide px-2">
+                  <h3 className="text-sm md:text-base font-heading font-bold text-primary mb-6 uppercase tracking-wide px-2 leading-tight">
                     {article.title}
                   </h3>
-                  <p className="text-xs text-gray-600 mb-6 leading-relaxed px-4 flex-grow line-clamp-4">
+                  <p className="text-xs text-gray-500 mb-8 leading-relaxed px-2 flex-grow">
                     {article.content}
                   </p>
-                  <Link to={`/blog/${article._id}`}>
-                    <Button className="bg-accent hover:bg-accent/90 text-white rounded-full px-8 py-2 text-xs font-bold tracking-wider uppercase transition-all hover:shadow-lg hover:-translate-y-1">
-                      Read more
-                    </Button>
-                  </Link>
-                </AnimatedElement>
-              ))
-            ) : (
-              // Fallback static data
-              [
-                { title: 'HOW TO CHARTER A PRIVATE JET', desc: 'Chartering a private jet can seem daunting on the surface – there’s choosing the aircraft that’s right for you, working out which airports to fly from/to, and then finding out how much it all costs.', img: 'https://images.aircharterservice.com/content/thumb-how-to-charter-a-private-jet.jpg' },
-                { title: 'THE BENEFITS OF A COMMERCIAL JET FOR BUSINESS', desc: 'Despite the rise of AI technologies and the continued automation of our society and its processes, business is still, for the most part, undertaken face-to-face between human beings.', img: 'https://images.aircharterservice.com/content/the-benefits-of-a-commercial-jet-for-business-thumb.jpg' },
-                { title: 'THE CARGO CHARTERS THAT DEFINED 2025', desc: '2025 was a strong year for Air Charter Service’s Cargo Division. Despite volatile demand and regional disruption, our teams kept relief, industrial and specialist cargo moving with speed and precision.', img: 'https://images.aircharterservice.com/content/the-cargo-charters-that-defined-2025-thumb.jpg' }
-              ].map((article, index) => (
-                <AnimatedElement key={index} delay={index * 150} className="flex flex-col items-center text-center group">
-                  <div className="w-full h-48 mb-6 overflow-hidden relative">
-                    <Image src={article.img} alt={article.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                  </div>
-                  <h3 className="text-sm font-heading font-bold text-primary mb-4 uppercase tracking-wide px-2">
-                    {article.title}
-                  </h3>
-                  <p className="text-xs text-gray-600 mb-6 leading-relaxed px-4 flex-grow line-clamp-4">
-                    {article.desc}
-                  </p>
-                  <Link to="/blog">
-                    <Button className="bg-accent hover:bg-accent/90 text-white rounded-full px-8 py-2 text-xs font-bold tracking-wider uppercase transition-all hover:shadow-lg hover:-translate-y-1">
-                      Read more
+                  <Link to={`/blog`}>
+                    <Button className="bg-accent hover:bg-accent/90 text-white rounded-full px-10 py-3 text-xs font-bold tracking-widest uppercase transition-all hover:shadow-lg hover:-translate-y-1">
+                      READ MORE
                     </Button>
                   </Link>
                 </AnimatedElement>
@@ -651,10 +552,10 @@ export default function HomePage() {
       <section className="bg-gray-100 border-t border-gray-200">
         <div className="container mx-auto max-w-6xl">
           <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-y md:divide-y-0 divide-gray-200">
-            <button onClick={() => window.location.href = 'tel:+1234567890'} className="flex items-center justify-center gap-2 py-6 hover:bg-gray-200 transition-colors text-primary font-bold text-xs uppercase tracking-wider">
+            <button onClick={() => window.location.href = 'tel:+918047111000'} className="flex items-center justify-center gap-2 py-6 hover:bg-gray-200 transition-colors text-primary font-bold text-xs uppercase tracking-wider">
               <PhoneCall className="w-4 h-4" /> Call Us
             </button>
-            <button onClick={() => window.location.href = 'mailto:info@example.com'} className="flex items-center justify-center gap-2 py-6 hover:bg-gray-200 transition-colors text-primary font-bold text-xs uppercase tracking-wider">
+            <button onClick={() => window.location.href = 'mailto:info@rvglobalaviation.com'} className="flex items-center justify-center gap-2 py-6 hover:bg-gray-200 transition-colors text-primary font-bold text-xs uppercase tracking-wider">
               <Mail className="w-4 h-4" /> Email Us
             </button>
             <button onClick={() => navigate('/contact')} className="flex items-center justify-center gap-2 py-6 hover:bg-gray-200 transition-colors text-primary font-bold text-xs uppercase tracking-wider">

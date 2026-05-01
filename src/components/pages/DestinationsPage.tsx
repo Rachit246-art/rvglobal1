@@ -4,8 +4,7 @@ import Footer from '@/components/Footer';
 import { Image } from '@/components/ui/image';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { BaseCrudService } from '@/integrations';
-import { DestinationGuides } from '@/entities';
+
 import { MapPin, Search, ChevronLeft, ChevronRight } from 'lucide-react';
 
 // Carousel Component
@@ -86,7 +85,7 @@ const AnimatedElement: React.FC<{children: React.ReactNode; className?: string}>
 };
 
 export default function DestinationsPage() {
-  const [destinations, setDestinations] = useState<DestinationGuides[]>([]);
+  const [destinations, setDestinations] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
 
@@ -95,15 +94,17 @@ export default function DestinationsPage() {
   }, []);
 
   const loadDestinations = async () => {
-    try {
-      setIsLoading(true);
-      const data = await BaseCrudService.getAll<DestinationGuides>('destinationguides');
-      setDestinations(data.items);
-    } catch (error) {
-      console.error('Error loading destinations:', error);
-    } finally {
-      setIsLoading(false);
-    }
+    setDestinations([
+      { _id: '1', destinationName: 'Aspen', country: 'USA', iataCode: 'ASE', destinationImage: '/assets/destinations/aspen.jpg', description: 'Nestled in the Rocky Mountains, Aspen is a premier destination for luxury ski vacations and outdoor adventures. Private jet charters offer unparalleled convenience for accessing this exclusive resort town...', popularRoutes: 'New York (TEB), Los Angeles (VNY), Dallas (DAL), Miami (OPF)' },
+      { _id: '2', destinationName: 'Maldives', country: 'Maldives', iataCode: 'MLE', destinationImage: '/assets/destinations/maldives.jpg', description: 'The Maldives, an archipelago of breathtaking coral islands, is the epitome of luxury tropical escapes. Chartering a private jet is the preferred way to reach this secluded paradise, offering direct access to...', popularRoutes: 'Dubai (DXB), London (LTN), Singapore (SIN), Mumbai (BOM)' },
+      { _id: '3', destinationName: 'St. Barts', country: 'France', iataCode: 'SBH', destinationImage: '/assets/destinations/st_barts.jpg', description: 'Saint Barthélemy, or St. Barts, is a jewel of the Caribbean, renowned for its pristine beaches, gourmet dining, and exclusive atmosphere. Private jet charters are essential for reaching this island, often...', popularRoutes: 'San Juan (SJU), St. Maarten (SXM), Miami (OPF), New York (TEB)' },
+      { _id: '4', destinationName: 'Mykonos', country: 'Greece', iataCode: 'JMK', destinationImage: '/assets/destinations/mykonos.jpg', description: 'Mykonos, a glamorous Greek island in the Aegean Sea, is famous for its vibrant nightlife, stunning beaches, and iconic Cycladic architecture. Private jet charters are popular for those seeking a stylish and...', popularRoutes: 'Athens (ATH), London (LTN), Rome (CIA), Istanbul (IST)' },
+      { _id: '5', destinationName: 'Dubai', country: 'UAE', iataCode: 'DXB', destinationImage: '/assets/destinations/dubai.jpg', description: 'Dubai, a city of superlatives, offers a unique blend of futuristic architecture, luxury shopping, and desert adventures. As a global business and leisure hub, it\'s a prime destination for private jet charters, catering to...', popularRoutes: 'London (LTN), Moscow (VKO), Riyadh (RUH), Mumbai (BOM)' },
+      { _id: '6', destinationName: 'London', country: 'UK', iataCode: 'LTN', destinationImage: '/assets/destinations/london.jpg', description: 'London, a world-leading financial and cultural capital, attracts a high volume of private jet traffic for both business and leisure. Its multiple private jet airports provide excellent connectivity to global destinations...', popularRoutes: 'New York (TEB), Paris (LBG), Geneva (GVA), Dubai (DXB)' },
+      { _id: '7', destinationName: 'Paris', country: 'France', iataCode: 'LBG', destinationImage: '/assets/destinations/paris.jpg', description: 'Paris, the \'City of Lights,\' is an enduring symbol of romance, art, and haute couture. Private jet charters to Paris are highly sought after for fashion weeks, cultural events, and luxury getaways, offering direct...', popularRoutes: 'London (LTN), Geneva (GVA), New York (TEB), Milan (LIN)' },
+      { _id: '8', destinationName: 'Geneva', country: 'Switzerland', iataCode: 'GVA', destinationImage: '/assets/destinations/geneva.jpg', description: 'Geneva, nestled on the shores of Lake Geneva with the Alps as a backdrop, is a significant international hub for diplomacy, finance, and luxury tourism. It\'s a popular private jet destination, especially for busines...', popularRoutes: 'London (LTN), Paris (LBG), Zurich (ZRH), Moscow (VKO)' },
+    ]);
+    setIsLoading(false);
   };
 
   const filteredDestinations = destinations.filter(dest => 
@@ -120,15 +121,15 @@ export default function DestinationsPage() {
       <section className="relative min-h-[400px] flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary via-primary/90 to-accent/20">
         <div className="absolute inset-0 w-full h-full">
           <ImageCarousel images={[
-            'https://images.aircharterservice.com/global/home/los-angeles-private-jet-charter.jpg?imwidth=640',
-            'https://images.aircharterservice.com/global/home/new-york-private-jet-charter.jpg?imwidth=640',
-            'https://images.aircharterservice.com/global/home/miami-private-jet-charter.jpg?imwidth=640'
+            '/assets/backgrounds/la_bg.jpg',
+            '/assets/backgrounds/ny_bg.jpg',
+            '/assets/backgrounds/miami_bg.jpg'
           ]} />
         </div>
         <div className="absolute inset-0 bg-gradient-to-br from-black/50 via-black/30 to-transparent" />
         
         <div className="relative z-10 container mx-auto px-4 py-20 text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white mb-6">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white mb-6 uppercase tracking-wider">
             Destination Guides
           </h1>
           <p className="text-lg md:text-xl font-paragraph text-white/90 max-w-3xl mx-auto mb-8">
@@ -171,7 +172,7 @@ export default function DestinationsPage() {
                           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
                           
                           <div className="absolute bottom-0 left-0 right-0 p-6">
-                            <h3 className="text-2xl font-heading font-bold text-white mb-2">
+                            <h3 className="text-xl md:text-2xl font-heading font-bold text-white mb-2 uppercase tracking-wide">
                               {destination.destinationName}
                             </h3>
                             <div className="flex items-center text-white/90">
@@ -203,7 +204,7 @@ export default function DestinationsPage() {
 
                         <Button 
                           onClick={() => window.location.href = '/contact'}
-                          className="w-full bg-accent hover:bg-accent/90 text-white font-paragraph font-medium"
+                          className="w-full bg-accent hover:bg-accent/90 text-white font-heading font-bold uppercase tracking-wider rounded-none"
                         >
                           Charter to {destination.destinationName}
                         </Button>
@@ -229,7 +230,7 @@ export default function DestinationsPage() {
       <section className="py-20 bg-gradient-to-br from-primary to-accent/20">
         <div className="container mx-auto px-4 text-center">
           <AnimatedElement>
-            <h2 className="text-3xl md:text-4xl font-heading font-bold text-white mb-6">
+            <h2 className="text-2xl md:text-3xl font-heading font-bold text-white mb-6 uppercase tracking-wider">
               Ready to Explore Your Next Destination?
             </h2>
             <p className="text-lg font-paragraph text-white/90 mb-8 max-w-2xl mx-auto">
@@ -237,7 +238,7 @@ export default function DestinationsPage() {
             </p>
             <Button 
               onClick={() => window.location.href = '/contact'}
-              className="bg-white text-primary hover:bg-gray-100 font-paragraph font-medium px-8 py-6 text-lg"
+              className="bg-white text-primary hover:bg-gray-100 font-heading font-bold uppercase tracking-wider px-10 py-4 text-sm rounded-none shadow-lg transition-all"
             >
               Plan Your Journey
             </Button>
