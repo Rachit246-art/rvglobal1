@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Menu, X, Phone, ChevronDown } from 'lucide-react';
 import { Image } from '@/components/ui/image';
@@ -9,6 +9,7 @@ export default function Header() {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -128,7 +129,7 @@ export default function Header() {
 
             </a>
             <Button 
-              onClick={() => window.location.href = '/contact'}
+              onClick={() => navigate('/contact')}
               className="bg-accent hover:bg-accent/90 text-white font-paragraph font-medium"
             >
               Inquire Now
@@ -195,7 +196,7 @@ export default function Header() {
                 <Button 
                   onClick={() => {
                     setMobileMenuOpen(false);
-                    window.location.href = '/contact';
+                    navigate('/contact');
                   }}
                   className="bg-accent hover:bg-accent/90 text-white font-paragraph font-medium w-full"
                 >
