@@ -121,7 +121,7 @@ export default function AboutPage() {
       </section>
 
       {/* About Section */}
-      <section className="py-24 bg-white">
+      <section id="story" className="py-24 bg-white scroll-mt-24">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center mb-24">
             <AnimatedElement>
@@ -140,7 +140,7 @@ export default function AboutPage() {
           </div>
 
           {/* Vision & Mission */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-24">
+          <div id="vision" className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-24 scroll-mt-24">
             <AnimatedElement className="h-full">
               <div className="bg-white p-10 rounded-3xl h-full border border-gray-100 shadow-xl hover:shadow-2xl transition-all">
                 <h3 className="text-2xl font-heading font-bold text-accent mb-6 uppercase tracking-wide border-b pb-4">Vision</h3>
@@ -232,7 +232,7 @@ export default function AboutPage() {
           </div>
 
           {/* Operational Strengths */}
-          <div className="mb-24">
+          <div id="team" className="mb-24 scroll-mt-24">
             <AnimatedElement className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-heading font-bold text-primary uppercase tracking-wide">
                 Operational Strengths

@@ -1,11 +1,11 @@
 import { useState, useEffect, useRef } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Image } from '@/components/ui/image';
 import { Button } from '@/components/ui/button';
 
-import { Plane, Users, Package, CheckCircle, ChevronLeft, ChevronRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Plane, Users, Package, Globe, CheckCircle, ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 
 // Carousel Component
 const ImageCarousel: React.FC<{ images: string[] }> = ({ images }) => {
@@ -97,6 +97,7 @@ const AnimatedElement: React.FC<{children: React.ReactNode; className?: string; 
 export default function ServicesPage() {
   const [services, setServices] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
     loadServices();
@@ -105,28 +106,28 @@ export default function ServicesPage() {
   const loadServices = async () => {
     setServices([
       { 
-        _id: '1', 
+        _id: 'private-jet', 
         serviceName: 'Private Jet Charter', 
         serviceImage: '/assets/services/private_jet_charter.jpg', 
         description: 'Our Private Jet Charter service offers the ultimate in convenience, comfort, and privacy. Tailored to your schedule, you can fly to thousands of airports worldwide, avoiding commercial airport hassles. Enjoy bespoke catering, spacious cabins, and dedicated service from booking to landing.',
         benefits: 'Time-saving, privacy, comfort, flexibility, access to remote locations, personalized service.'
       },
       { 
-        _id: '2', 
+        _id: 'group-charter', 
         serviceName: 'Group Charter Flights', 
-        serviceImage: '/assets/services/private_jet_charter.jpg', 
+        serviceImage: '/assets/backgrounds/hero_bg_1.png', 
         description: 'Whether it\'s for corporate events, sports teams, incentive travel, or large family gatherings, our Group Charter Flights provide a seamless travel experience. We manage all logistics, offering customized branding, flexible scheduling, and a choice of aircraft to suit your group\'s specific needs and budget.',
         benefits: 'Cost-effective for groups, customized itineraries, dedicated check-in, brand visibility, enhanced group cohesion.'
       },
       { 
-        _id: '3', 
+        _id: 'cargo-charter', 
         serviceName: 'Cargo Charter Services', 
         serviceImage: '/assets/services/cargo_charter.jpg', 
         description: 'When standard shipping isn\'t enough, our Cargo Charter Services provide dedicated aircraft for your critical freight. From humanitarian aid and industrial equipment to high-value goods and dangerous materials, we offer bespoke solutions for time-sensitive and specialized cargo, ensuring secure and timely delivery globally.',
         benefits: 'Speed, security, capacity for oversized items, global reach, specialized handling, reduced transit times.'
       },
       { 
-        _id: '4', 
+        _id: 'helicopter', 
         serviceName: 'Helicopter Charter', 
         serviceImage: '/assets/services/helicopter_charter.jpg', 
         description: 'Our Helicopter Charter service offers unparalleled access to remote locations, city-to-city transfers, and scenic tours. Ideal for executive travel, aerial surveys, or special events, helicopters provide flexibility and speed, bypassing traffic and reaching destinations inaccessible by fixed-wing aircraft.',
@@ -168,60 +169,81 @@ export default function ServicesPage() {
             {isLoading ? null : services.length > 0 ? (
               <div className="space-y-20">
                 {services.map((service, index) => (
-                  <AnimatedElement key={service._id}>
-                    <div className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
-                      {/* Image */}
-                      <div className={`${index % 2 === 1 ? 'lg:order-2' : ''}`}>
-                        {service.serviceImage && (
-                          <div className="relative rounded-3xl overflow-hidden shadow-2xl hover:shadow-accent/20 transition-shadow duration-300">
-                            <Image 
-                              src={service.serviceImage} 
-                              alt={service.serviceName || 'Service'} 
-                              className="w-full h-[400px] object-cover"
-                              width={600}
-                            />
-                          </div>
-                        )}
-                      </div>
-
-                      {/* Content */}
-                      <div className={`${index % 2 === 1 ? 'lg:order-1' : ''}`}>
-                        <div className="flex items-center mb-6">
-                          {index === 0 && <Plane className="w-8 h-8 text-accent mr-4" />}
-                          {index === 1 && <Users className="w-8 h-8 text-accent mr-4" />}
-                          {index === 2 && <Package className="w-8 h-8 text-accent mr-4" />}
-                          {index === 3 && <Plane className="w-8 h-8 text-accent mr-4" />}
-                          <h2 className="text-2xl md:text-3xl font-heading font-bold text-primary">
-                            {service.serviceName}
-                          </h2>
+                  <div key={service._id} id={service._id} className="scroll-mt-32">
+                    <AnimatedElement>
+                      <div className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
+                        {/* Image */}
+                        <div className={`${index % 2 === 1 ? 'lg:order-2' : ''}`}>
+                          {service.serviceImage && (
+                            <div className="relative rounded-3xl overflow-hidden shadow-2xl hover:shadow-accent/20 transition-all duration-500 hover:scale-[1.02]">
+                              <Image 
+                                src={service.serviceImage} 
+                                alt={service.serviceName || 'Service'} 
+                                className="w-full h-[350px] md:h-[450px] object-cover"
+                                width={600}
+                              />
+                              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 hover:opacity-100 transition-opacity duration-500 flex items-end p-8">
+                                <Button 
+                                  onClick={() => navigate(`/services/${service._id}`)}
+                                  variant="outline" 
+                                  className="text-white border-white hover:bg-white hover:text-primary rounded-none"
+                                >
+                                  View Details
+                                </Button>
+                              </div>
+                            </div>
+                          )}
                         </div>
 
-                        <p className="text-sm font-paragraph text-gray-600 mb-8 leading-relaxed">
-                          {service.description}
-                        </p>
-
-                        {service.benefits && (
-                          <div className="mb-8">
-                            <h3 className="text-sm font-heading font-bold text-primary mb-4 uppercase tracking-wider">Key Benefits</h3>
-                            <div className="space-y-3">
-                              {service.benefits.split(',').filter(b => b.trim()).map((benefit, i) => (
-                                <div key={i} className="flex items-start">
-                                  <CheckCircle className="w-4 h-4 text-accent mr-3 flex-shrink-0 mt-0.5" />
-                                  <p className="font-paragraph text-xs text-gray-600">{benefit.trim()}</p>
-                                </div>
-                              ))}
-                            </div>
+                        {/* Content */}
+                        <div className={`${index % 2 === 1 ? 'lg:order-1' : ''}`}>
+                          <div className="flex items-center mb-6">
+                            {service._id === 'private-jet' && <Plane className="w-8 h-8 text-accent mr-4" />}
+                            {service._id === 'group-charter' && <Users className="w-8 h-8 text-accent mr-4" />}
+                            {service._id === 'cargo-charter' && <Package className="w-8 h-8 text-accent mr-4" />}
+                            {service._id === 'helicopter' && <Plane className="w-8 h-8 text-accent mr-4 rotate-45" />}
+                            <h2 className="text-2xl md:text-4xl font-heading font-bold text-primary uppercase tracking-tight">
+                              {service.serviceName}
+                            </h2>
                           </div>
-                        )}
 
-                        <Link to="/contact">
-                          <Button className="bg-accent hover:bg-accent/90 text-white font-heading font-bold tracking-wider px-6 py-3 text-xs rounded-sm shadow-md transition-all">
-                            Request a Quote
-                          </Button>
-                        </Link>
+                          <p className="text-base md:text-lg font-paragraph text-gray-600 mb-8 leading-relaxed">
+                            {service.description}
+                          </p>
+
+                          {service.benefits && (
+                            <div className="mb-10">
+                              <h3 className="text-sm font-heading font-bold text-primary mb-5 uppercase tracking-[0.2em] border-b border-gray-100 pb-2">Key Benefits</h3>
+                              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                {service.benefits.split(',').filter(b => b.trim()).map((benefit, i) => (
+                                  <div key={i} className="flex items-center">
+                                    <CheckCircle className="w-4 h-4 text-accent mr-3 flex-shrink-0" />
+                                    <p className="font-paragraph text-xs md:text-sm text-gray-600 font-medium">{benefit.trim()}</p>
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+                          )}
+
+                          <div className="flex flex-wrap gap-4">
+                            <Button 
+                              onClick={() => navigate(`/services/${service._id}`)}
+                              className="bg-primary hover:bg-primary/90 text-white font-heading font-bold tracking-wider px-8 py-6 text-xs rounded-none shadow-lg transition-all"
+                            >
+                              Explore Service <ArrowRight className="ml-2 w-4 h-4" />
+                            </Button>
+                            <Button 
+                              onClick={() => navigate('/contact', { state: { service: service.serviceName } })}
+                              variant="outline"
+                              className="border-accent text-accent hover:bg-accent hover:text-white font-heading font-bold tracking-wider px-8 py-6 text-xs rounded-none shadow-sm transition-all"
+                            >
+                              Request a Quote
+                            </Button>
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                  </AnimatedElement>
+                    </AnimatedElement>
+                  </div>
                 ))}
               </div>
             ) : (
@@ -234,20 +256,23 @@ export default function ServicesPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-primary to-accent/20">
+      <section className="py-24 bg-gradient-to-br from-primary to-accent/20">
         <div className="container mx-auto px-4 text-center">
           <AnimatedElement>
-            <h2 className="text-3xl md:text-4xl font-heading font-bold text-white mb-6">
+            <h2 className="text-3xl md:text-5xl font-heading font-bold text-white mb-8 uppercase tracking-widest">
               Ready to Charter Your Aircraft?
             </h2>
-            <p className="text-lg font-paragraph text-white/90 mb-8 max-w-2xl mx-auto">
-              Our dedicated team is available 24/7 to assist you with your charter needs
+            <p className="text-lg md:text-xl font-paragraph text-white/90 mb-10 max-w-3xl mx-auto leading-relaxed">
+              Our dedicated team is available 24/7 to assist you with bespoke aviation solutions tailored to your mission requirements.
             </p>
-            <Link to="/contact">
-              <Button className="bg-white text-primary hover:bg-gray-100 font-heading font-bold uppercase tracking-wider px-10 py-4 text-sm rounded-none shadow-lg transition-all">
-                Contact Us Now
+            <div className="flex justify-center gap-6">
+              <Button 
+                onClick={() => navigate('/contact')}
+                className="bg-white text-primary hover:bg-gray-100 font-heading font-bold uppercase tracking-widest px-12 py-5 text-sm rounded-none shadow-2xl transition-all hover:scale-105"
+              >
+                Contact Our Experts
               </Button>
-            </Link>
+            </div>
           </AnimatedElement>
         </div>
       </section>

@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Image } from '@/components/ui/image';
@@ -7,6 +8,7 @@ import { Input } from '@/components/ui/input';
 
 import { Search, Calendar, User, Tag, ChevronLeft, ChevronRight } from 'lucide-react';
 import { format } from 'date-fns';
+import { blogArticles } from '@/lib/blog-data';
 
 // Carousel Component
 const ImageCarousel: React.FC<{ images: string[] }> = ({ images }) => {
@@ -96,6 +98,7 @@ const AnimatedElement: React.FC<{children: React.ReactNode; className?: string; 
 };
 
 export default function BlogPage() {
+  const navigate = useNavigate();
   const [articles, setArticles] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
@@ -106,62 +109,7 @@ export default function BlogPage() {
   }, []);
 
   const loadArticles = async () => {
-    setArticles([
-      { 
-        _id: '1', 
-        title: 'The Future of Private Jet Travel: What to Expect in the Next Decade', 
-        mainImage: '/assets/aircraft/generic_jet.jpg', 
-        content: 'Private jet travel is constantly evolving, driven by technological advancements, sustainability initiatives, and changing passenger demands. This article explores emerging trends such as electric aircraft, AI-powered personalized services...', 
-        author: 'Amelia Earhart', 
-        publishDate: 'March 15, 2024', 
-        category: 'Private Jet' 
-      },
-      { 
-        _id: '2', 
-        title: 'Navigating Global Supply Chains: The Critical Role of Air Cargo in Modern...', 
-        mainImage: '/assets/services/cargo_charter.jpg', 
-        content: 'In an increasingly interconnected world, efficient global supply chains are paramount. Air cargo plays a pivotal role, offering speed and reliability unmatched by other transportation methods. This article delves into how...', 
-        author: 'John Cargo', 
-        publishDate: 'February 28, 2024', 
-        category: 'Cargo' 
-      },
-      { 
-        _id: '3', 
-        title: 'Top 5 Exclusive Destinations Accessible Only by Private Charter', 
-        mainImage: '/assets/destinations/maldives.jpg', 
-        content: 'Dreaming of an escape to a truly unique and secluded paradise? Private charter flights open up a world of possibilities, granting access to destinations that commercial airlines simply cannot reach. This article unveils...', 
-        author: 'Sarah Voyager', 
-        publishDate: 'March 01, 2024', 
-        category: 'Destinations' 
-      },
-      { 
-        _id: '4', 
-        title: 'Understanding Private Jet Charters: A First-Timer\'s Comprehensive Guide', 
-        mainImage: '/assets/blog/blog_1.jpg', 
-        content: 'Considering your first private jet charter but unsure where to start? This comprehensive guide demystifies the process, offering essential insights for new clients. We cover everything from understanding different...', 
-        author: 'David Pilot', 
-        publishDate: 'January 20, 2024', 
-        category: 'Private Jet' 
-      },
-      { 
-        _id: '5', 
-        title: 'Emergency Air Cargo: When Speed and Reliability Are Non-Negotiable', 
-        mainImage: '/assets/services/cargo_charter.jpg', 
-        content: 'In critical situations, every second counts. Emergency air cargo services provide a lifeline for industries and individuals alike, ensuring urgent shipments reach their destination with unparalleled speed and...', 
-        author: 'Emily Swift', 
-        publishDate: 'February 10, 2024', 
-        category: 'Cargo' 
-      },
-      { 
-        _id: '6', 
-        title: 'Beyond the Runway: Unique Experiences at Remote Airfields Worldwide', 
-        mainImage: '/assets/destinations/london.jpg', 
-        content: 'While major international airports serve as global hubs, a world of adventure awaits at smaller, more remote airfields. This article takes you on a journey to some of the most unique and picturesque airstrips...', 
-        author: 'Mark Explorer', 
-        publishDate: 'March 05, 2024', 
-        category: 'Destinations' 
-      },
-    ]);
+    setArticles(blogArticles);
     setIsLoading(false);
   };
 
@@ -175,21 +123,12 @@ export default function BlogPage() {
     return matchesSearch && matchesCategory;
   });
 
-  const formatDate = (date: Date | string | undefined) => {
-    if (!date) return '';
-    try {
-      return format(new Date(date), 'MMMM dd, yyyy');
-    } catch {
-      return '';
-    }
-  };
-
   return (
     <div className="min-h-screen bg-background">
       <Header />
 
       {/* Hero Section with Image Carousel */}
-      <section className="relative min-h-[400px] flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary via-primary/90 to-accent/20">
+      <section className="relative min-h-[500px] md:min-h-[600px] flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary via-primary/90 to-accent/20">
         <div className="absolute inset-0 w-full h-full">
           <ImageCarousel images={[
             '/assets/aircraft/generic_jet.jpg',
@@ -197,45 +136,47 @@ export default function BlogPage() {
             '/assets/services/cargo_charter.jpg'
           ]} />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-br from-black/50 via-black/30 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/40 to-transparent" />
         
-        <div className="relative z-10 container mx-auto px-4 py-20 text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white mb-6">
-            Aviation Insights & News
-          </h1>
-          <p className="text-lg md:text-xl font-paragraph text-white/90 max-w-3xl mx-auto mb-8">
-            Stay informed with the latest trends, tips, and stories from the world of private aviation
-          </p>
+        <div className="relative z-10 container mx-auto px-6 py-32 text-center">
+          <AnimatedElement>
+            <h1 className="text-5xl md:text-6xl lg:text-8xl font-heading font-bold text-white mb-8 tracking-tight">
+              Aviation Insights
+            </h1>
+            <p className="text-xl md:text-2xl font-paragraph text-white/90 max-w-4xl mx-auto mb-12 leading-relaxed">
+              Stay ahead with the latest trends, expert tips, and exclusive stories from the world of bespoke private aviation.
+            </p>
 
-          {/* Search Bar */}
-          <div className="max-w-2xl mx-auto">
-            <div className="relative">
-              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
-              <Input
-                type="text"
-                placeholder="Search articles..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="pl-12 py-6 text-lg font-paragraph bg-white"
-              />
+            {/* Search Bar */}
+            <div className="max-w-3xl mx-auto">
+              <div className="relative group">
+                <Search className="absolute left-6 top-1/2 -translate-y-1/2 w-6 h-6 text-gray-400 group-focus-within:text-accent transition-colors" />
+                <Input
+                  type="text"
+                  placeholder="Search our knowledge base..."
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  className="pl-16 py-8 text-xl font-paragraph bg-white/95 backdrop-blur-sm border-none shadow-2xl rounded-none focus-visible:ring-2 focus-visible:ring-accent"
+                />
+              </div>
             </div>
-          </div>
+          </AnimatedElement>
         </div>
       </section>
 
       {/* Category Filter */}
-      <section className="py-8 bg-white border-b border-gray-200">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-wrap gap-3 justify-center">
+      <section className="py-12 bg-white border-b border-gray-100 sticky top-20 z-30 shadow-sm">
+        <div className="container mx-auto px-6">
+          <div className="flex flex-wrap gap-4 justify-center">
             {categories.map((category) => (
               <Button
                 key={category}
                 onClick={() => setSelectedCategory(category)}
                 className={`${
                   selectedCategory === category 
-                    ? 'bg-accent text-white' 
-                    : 'bg-gray-100 text-primary hover:bg-gray-200'
-                } font-paragraph font-medium capitalize`}
+                    ? 'bg-accent text-white shadow-lg' 
+                    : 'bg-gray-50 text-primary hover:bg-gray-100 border border-gray-200'
+                } font-paragraph font-bold uppercase tracking-widest px-8 py-6 rounded-none transition-all`}
               >
                 {category}
               </Button>
@@ -245,11 +186,11 @@ export default function BlogPage() {
       </section>
 
       {/* Articles Grid */}
-      <section className="py-20 bg-gradient-to-b from-white to-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="min-h-[500px]">
+      <section id="articles" className="py-32 bg-gray-50/50 scroll-mt-32">
+        <div className="container mx-auto px-6 max-w-7xl">
+          <div className="min-h-[600px]">
             {isLoading ? null : filteredArticles.length > 0 ? (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
                 {filteredArticles.map((article, index) => (
                   <AnimatedElement key={article._id} className={`delay-${(index % 3) * 100}`}>
                     <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] h-full flex flex-col">
@@ -295,6 +236,7 @@ export default function BlogPage() {
 
                         <Button 
                           variant="outline" 
+                          onClick={() => navigate(`/blog/${article._id}`)}
                           className="w-full border-accent text-accent hover:bg-accent hover:text-white transition-colors mt-auto"
                         >
                           Read Full Article
@@ -318,7 +260,7 @@ export default function BlogPage() {
       </section>
 
       {/* Newsletter CTA */}
-      <section className="py-20 bg-gradient-to-br from-primary to-accent/20">
+      <section id="subscribe" className="py-20 bg-gradient-to-br from-primary to-accent/20 scroll-mt-20">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
             <AnimatedElement>

@@ -286,7 +286,7 @@ export default function HomePage() {
                 <p className="text-sm text-gray-600 mb-6 leading-relaxed px-4 flex-grow">
                   {service.shortDescription || service.description}
                 </p>
-                <Link to={`/services`}>
+                <Link to={`/services/${service._id}`}>
                   <Button className="bg-accent hover:bg-accent/90 text-white rounded-full px-8 py-2 text-xs font-bold tracking-wider uppercase transition-all hover:shadow-lg hover:-translate-y-1">
                     Learn More
                   </Button>
@@ -338,9 +338,11 @@ export default function HomePage() {
                 </div>
                 <p className="text-sm text-white/80">Required for all domestic flights since May 2025.</p>
               </div>
-              <Button variant="outline" className="border-white text-primary bg-white hover:bg-gray-100 rounded-none px-8 py-2 text-xs font-bold tracking-wider uppercase whitespace-nowrap">
-                Learn more
-              </Button>
+              <Link to="/real-id">
+                <Button variant="outline" className="border-white text-primary bg-white hover:bg-gray-100 rounded-none px-8 py-2 text-xs font-bold tracking-wider uppercase whitespace-nowrap">
+                  Learn more
+                </Button>
+              </Link>
             </div>
           </AnimatedElement>
         </div>
@@ -536,7 +538,7 @@ export default function HomePage() {
                   <p className="text-xs text-gray-500 mb-8 leading-relaxed px-2 flex-grow">
                     {article.content}
                   </p>
-                  <Link to={`/blog`}>
+                  <Link to={`/blog/${article._id}`}>
                     <Button className="bg-accent hover:bg-accent/90 text-white rounded-full px-10 py-3 text-xs font-bold tracking-widest uppercase transition-all hover:shadow-lg hover:-translate-y-1">
                       READ MORE
                     </Button>

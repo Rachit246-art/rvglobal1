@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
@@ -96,6 +97,7 @@ const AnimatedElement: React.FC<{children: React.ReactNode; className?: string; 
 };
 
 export default function ContactPage() {
+  const location = useLocation();
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
@@ -105,6 +107,30 @@ export default function ContactPage() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
+
+  useEffect(() => {
+    if (location.state) {
+      const state = location.state as any;
+      if (state.service) {
+        setFormData(prev => ({
+          ...prev,
+          inquiryType: state.service
+        }));
+      } else if (state.aircraft) {
+        setFormData(prev => ({
+          ...prev,
+          inquiryType: 'Private Jet Charter',
+          message: `Inquiry for aircraft: ${state.aircraft}\n\n${prev.message}`
+        }));
+      } else if (state.destination) {
+        setFormData(prev => ({
+          ...prev,
+          inquiryType: 'General Inquiry',
+          message: `Inquiry for charter to: ${state.destination}\n\n${prev.message}`
+        }));
+      }
+    }
+  }, [location.state]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -289,8 +315,8 @@ export default function ContactPage() {
                       >
                         <option value="">Select type</option>
                         <option value="Private Jet Charter">Private Jet Charter</option>
-                        <option value="Group Charter">Group Charter</option>
-                        <option value="Cargo Charter">Cargo Charter</option>
+                        <option value="Group Charter Flights">Group Charter Flights</option>
+                        <option value="Cargo Charter Services">Cargo Charter Services</option>
                         <option value="Helicopter Charter">Helicopter Charter</option>
                         <option value="General Inquiry">General Inquiry</option>
                       </select>

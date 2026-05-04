@@ -31,9 +31,10 @@ export default function Header() {
       label: 'Services', 
       path: '/services',
       submenu: [
-        { label: 'Private Jet Charter', path: '/services' },
-        { label: 'Group Charter', path: '/services' },
-        { label: 'Cargo Charter', path: '/services' },
+        { label: 'Private Jet Charter', path: '/services/private-jet' },
+        { label: 'Group Charter', path: '/services/group-charter' },
+        { label: 'Cargo Charter', path: '/services/cargo-charter' },
+        { label: 'Helicopter Charter', path: '/services/helicopter' },
       ]
     },
     { 
@@ -41,31 +42,48 @@ export default function Header() {
       path: '/aircraft',
       submenu: [
         { label: 'Fleet Overview', path: '/aircraft' },
-        { label: 'Aircraft Specifications', path: '/aircraft' },
+        { label: 'Citation M2', path: '/aircraft/citation-m2' },
+        { label: 'Phenom 300E', path: '/aircraft/phenom-300e' },
+        { label: 'Challenger 350', path: '/aircraft/challenger-350' },
+        { label: 'Gulfstream G650ER', path: '/aircraft/g650er' },
+        { label: 'Global 7500', path: '/aircraft/global-7500' },
+        { label: 'Bell 407GXi', path: '/aircraft/bell-407gxi' },
+        { label: 'Pilatus PC-12 NGX', path: '/aircraft/pilatus-pc-12' },
+        { label: 'Legacy 600', path: '/aircraft/legacy-600' },
+        { label: 'Hawker 800XP', path: '/aircraft/hawker-800xp' },
+        { label: 'Citation X+', path: '/aircraft/citation-x' },
+        { label: 'King Air 350i', path: '/aircraft/king-air-350i' },
+        { label: 'Airbus H145', path: '/aircraft/h145' },
       ]
     },
     { 
       label: 'Destinations', 
       path: '/destinations',
       submenu: [
-        { label: 'Popular Routes', path: '/destinations' },
-        { label: 'Global Coverage', path: '/destinations' },
+        { label: 'Aspen', path: '/destinations/aspen' },
+        { label: 'Maldives', path: '/destinations/maldives' },
+        { label: 'St. Barts', path: '/destinations/st-barts' },
+        { label: 'Mykonos', path: '/destinations/mykonos' },
+        { label: 'Dubai', path: '/destinations/dubai' },
+        { label: 'London', path: '/destinations/london' },
+        { label: 'Paris', path: '/destinations/paris' },
+        { label: 'Geneva', path: '/destinations/geneva' },
       ]
     },
     { 
       label: 'About Us', 
       path: '/about',
       submenu: [
-        { label: 'Our Team', path: '/about' },
-        { label: 'Our Story', path: '/about' },
+        { label: 'Our Team', path: '/about#team' },
+        { label: 'Our Story', path: '/about#story' },
       ]
     },
     { 
       label: 'Blog', 
       path: '/blog',
       submenu: [
-        { label: 'Latest Articles', path: '/blog' },
-        { label: 'Travel Tips', path: '/blog' },
+        { label: 'Latest Articles', path: '/blog#articles' },
+        { label: 'Travel Tips', path: '/blog#articles' },
       ]
     },
     { 
