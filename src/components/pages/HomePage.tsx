@@ -115,21 +115,21 @@ export default function HomePage() {
   const loadData = async () => {
     setServices([
       { 
-        _id: '1', 
+        _id: 'private-jet', 
         serviceName: 'PRIVATE JET CHARTER', 
         serviceImage: '/assets/services/private_jet_charter.jpg', 
         description: 'Experience unparalleled luxury and flexibility with our private jet services.',
         shortDescription: 'Experience unparalleled luxury and flexibility with our private jet services.'
       },
       { 
-        _id: '2', 
+        _id: 'group-charter', 
         serviceName: 'GROUP CHARTER FLIGHTS', 
         serviceImage: '/assets/services/private_jet_charter.jpg', 
         description: 'Efficient and customized air travel solutions for groups of any size.',
         shortDescription: 'Efficient and customized air travel solutions for groups of any size.'
       },
       { 
-        _id: '3', 
+        _id: 'cargo-charter', 
         serviceName: 'CARGO CHARTER SERVICES', 
         serviceImage: '/assets/services/cargo_charter.jpg', 
         description: 'Reliable and rapid air freight solutions for urgent or oversized cargo.',
@@ -286,7 +286,7 @@ export default function HomePage() {
                 <p className="text-sm text-gray-600 mb-6 leading-relaxed px-4 flex-grow">
                   {service.shortDescription || service.description}
                 </p>
-                <Link to={`/services/${service._id}`}>
+                <Link to={`/services#${service._id}`}>
                   <Button className="bg-accent hover:bg-accent/90 text-white rounded-full px-8 py-2 text-xs font-bold tracking-wider uppercase transition-all hover:shadow-lg hover:-translate-y-1">
                     Learn More
                   </Button>

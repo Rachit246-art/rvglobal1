@@ -1,11 +1,14 @@
 import { useState, useEffect, useRef } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Image } from '@/components/ui/image';
 import { Button } from '@/components/ui/button';
 
 import { Plane, Users, Package, Globe, CheckCircle, ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
+
+// Carousel Component
+// ... (rest of the Carousel component)
 
 // Carousel Component
 const ImageCarousel: React.FC<{ images: string[] }> = ({ images }) => {
@@ -98,10 +101,24 @@ export default function ServicesPage() {
   const [services, setServices] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     loadServices();
   }, []);
+
+  useEffect(() => {
+    if (!isLoading && location.hash) {
+      const id = location.hash.substring(1);
+      const element = document.getElementById(id);
+      if (element) {
+        // Delay slightly to ensure layout is ready after animation
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+      }
+    }
+  }, [location, isLoading]);
 
   const loadServices = async () => {
     setServices([
