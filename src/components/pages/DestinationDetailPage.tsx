@@ -76,7 +76,7 @@ export default function DestinationDetailPage() {
             </p>
             <Button 
               onClick={() => navigate('/contact', { state: { destination: dest.name } })}
-              className="bg-accent hover:bg-accent/90 text-white font-heading font-bold uppercase tracking-[0.3em] px-16 py-8 text-sm rounded-none shadow-2xl transition-all hover:scale-105"
+              className="bg-accent hover:bg-accent/90 text-white font-heading font-bold uppercase tracking-[0.2em] md:tracking-[0.3em] px-8 md:px-16 py-5 md:py-8 text-xs md:text-sm rounded-none shadow-2xl transition-all hover:scale-105 w-full md:w-auto"
             >
               Charter to {dest.name}
             </Button>
@@ -246,7 +246,7 @@ export default function DestinationDetailPage() {
             </p>
             <Button 
               onClick={() => navigate('/contact', { state: { destination: dest.name } })}
-              className="bg-white text-primary hover:bg-gray-100 font-heading font-bold uppercase tracking-[0.4em] px-20 py-10 text-base rounded-none shadow-2xl transition-all hover:scale-105"
+              className="bg-white text-primary hover:bg-gray-100 font-heading font-bold uppercase tracking-[0.2em] md:tracking-[0.4em] px-8 md:px-20 py-5 md:py-10 text-sm md:text-base rounded-none shadow-2xl transition-all hover:scale-105 w-full md:w-auto"
             >
               Start Your Journey <ArrowRight className="ml-4 w-6 h-6" />
             </Button>

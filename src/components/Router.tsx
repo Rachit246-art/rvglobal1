@@ -12,7 +12,7 @@ import BlogPage from '@/components/pages/BlogPage';
 import BlogPostPage from '@/components/pages/BlogPostPage';
 import ContactPage from '@/components/pages/ContactPage';
 import RealIDPage from '@/components/pages/RealIDPage';
-import FloatingWhatsApp from '@/components/FloatingWhatsApp';
+import Chatbot from '@/components/Chatbot';
 
 // Layout component that includes ScrollToTop
 function Layout() {
@@ -20,7 +20,7 @@ function Layout() {
     <>
       <ScrollToTop />
       <Outlet />
-      <FloatingWhatsApp />
+      <Chatbot />
     </>
   );
 }

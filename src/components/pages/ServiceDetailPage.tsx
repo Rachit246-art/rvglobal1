@@ -72,10 +72,10 @@ export default function ServiceDetailPage() {
             <p className="text-lg md:text-xl font-paragraph text-white/90 mb-10 max-w-2xl leading-relaxed">
               {service.description}
             </p>
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap gap-4 w-full">
               <Button 
                 onClick={() => navigate('/contact')}
-                className="bg-accent hover:bg-accent/90 text-white font-heading font-bold uppercase tracking-widest px-10 py-7 text-sm rounded-none shadow-xl transition-all hover:scale-105"
+                className="bg-accent hover:bg-accent/90 text-white font-heading font-bold uppercase tracking-widest px-8 md:px-10 py-5 md:py-7 text-xs md:text-sm rounded-none shadow-xl transition-all hover:scale-105 w-full md:w-auto"
               >
                 Request a Quote
               </Button>
@@ -202,7 +202,7 @@ export default function ServiceDetailPage() {
             </p>
             <Button 
               onClick={() => navigate('/contact')}
-              className="bg-accent hover:bg-accent/90 text-white font-heading font-bold uppercase tracking-[0.2em] px-16 py-8 text-base rounded-none shadow-2xl transition-all hover:scale-105"
+              className="bg-accent hover:bg-accent/90 text-white font-heading font-bold uppercase tracking-[0.2em] px-8 md:px-16 py-5 md:py-8 text-sm md:text-base rounded-none shadow-2xl transition-all hover:scale-105 w-full md:w-auto"
             >
               Get Your Custom Quote <ArrowRight className="ml-3 w-5 h-5" />
             </Button>

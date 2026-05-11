@@ -97,8 +97,16 @@ const AnimatedElement: React.FC<{children: React.ReactNode; className?: string; 
   );
 };
 
+interface Service {
+  _id: string;
+  serviceName: string;
+  serviceImage: string;
+  description: string;
+  benefits: string;
+}
+
 export default function ServicesPage() {
-  const [services, setServices] = useState<any[]>([]);
+  const [services, setServices] = useState<Service[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
   const location = useLocation();
@@ -232,7 +240,7 @@ export default function ServicesPage() {
                             <div className="mb-10">
                               <h3 className="text-sm font-heading font-bold text-primary mb-5 uppercase tracking-[0.2em] border-b border-gray-100 pb-2">Key Benefits</h3>
                               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                {service.benefits.split(',').filter(b => b.trim()).map((benefit, i) => (
+                                {service.benefits.split(',').filter((b: string) => b.trim()).map((benefit: string, i: number) => (
                                   <div key={i} className="flex items-center">
                                     <CheckCircle className="w-4 h-4 text-accent mr-3 flex-shrink-0" />
                                     <p className="font-paragraph text-xs md:text-sm text-gray-600 font-medium">{benefit.trim()}</p>

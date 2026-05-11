@@ -81,7 +81,7 @@ export default function AircraftDetailPage() {
             </div>
             <Button 
               onClick={() => navigate('/contact', { state: { aircraft: aircraft.name } })}
-              className="bg-accent hover:bg-accent/90 text-white font-heading font-bold uppercase tracking-[0.2em] px-12 py-7 text-sm rounded-none shadow-2xl transition-all hover:scale-105"
+              className="bg-accent hover:bg-accent/90 text-white font-heading font-bold uppercase tracking-[0.2em] px-8 md:px-12 py-5 md:py-7 text-xs md:text-sm rounded-none shadow-2xl transition-all hover:scale-105 w-full md:w-auto"
             >
               Request a Quote
             </Button>
@@ -232,7 +232,7 @@ export default function AircraftDetailPage() {
             </p>
             <Button 
               onClick={() => navigate('/contact', { state: { aircraft: aircraft.name } })}
-              className="bg-primary hover:bg-primary/90 text-white font-heading font-bold uppercase tracking-[0.3em] px-16 py-8 text-base rounded-none shadow-2xl transition-all hover:scale-105"
+              className="bg-primary hover:bg-primary/90 text-white font-heading font-bold uppercase tracking-[0.2em] md:tracking-[0.3em] px-8 md:px-16 py-5 md:py-8 text-sm md:text-base rounded-none shadow-2xl transition-all hover:scale-105 w-full md:w-auto"
             >
               Get Your Custom Quote <ArrowRight className="ml-3 w-5 h-5" />
             </Button>

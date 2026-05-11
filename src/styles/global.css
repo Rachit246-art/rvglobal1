@@ -29,6 +29,28 @@
   }
 }
 
+@layer components {
+  .choice-btn {
+    @apply w-full text-left p-3 rounded-xl border border-slate-200 bg-white text-slate-700 text-sm hover:border-primary hover:text-primary hover:bg-primary/5 transition-all duration-200 shadow-sm;
+  }
+  .chat-input {
+    @apply p-3 rounded-xl border border-slate-200 bg-white text-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all;
+  }
+  .send-btn {
+    @apply p-3 bg-primary text-white rounded-xl hover:bg-primary/90 transition-all shadow-md active:scale-95;
+  }
+  .submit-btn {
+    @apply p-3 bg-accent text-white font-bold rounded-xl hover:bg-accent/90 transition-all shadow-lg active:scale-95 mt-2;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
 @layer utilities {
   .hover-lift {
     @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-xl;
